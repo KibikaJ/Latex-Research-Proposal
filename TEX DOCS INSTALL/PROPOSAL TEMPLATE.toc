@@ -1,0 +1,19 @@
+\contentsline {section}{Abbreviations and Acronyms}{ii}
+\contentsline {section}{List of Figures}{iii}
+\contentsline {section}{Abstract}{iv}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Mathematical background}{1}
+\contentsline {section}{\numberline {1.2}Statement of the problem}{2}
+\contentsline {section}{\numberline {1.3}Objectives of the study}{3}
+\contentsline {section}{\numberline {1.4}Significance of the study}{3}
+\contentsline {chapter}{\numberline {2}Literature review}{5}
+\contentsline {section}{\numberline {2.1}Introduction}{5}
+\contentsline {chapter}{\numberline {3}Research methodology}{23}
+\contentsline {section}{\numberline {3.1}Introduction}{23}
+\contentsline {section}{\numberline {3.2}Data Collection}{23}
+\contentsline {section}{\numberline {3.3}Sampling Design}{23}
+\contentsline {section}{\numberline {3.4}Data Analysis}{24}
+\contentsline {section}{\numberline {3.5}Model Structure}{25}
+\contentsline {section}{References}{26}
+\contentsline {section}{Time schedule}{29}
+\contentsline {section}{The proposed budget}{29}

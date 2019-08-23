@@ -1,0 +1,729 @@
+\documentclass[PhD,12,a4paper]{report}
+\linespread{1.5}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{tabularx}
+\usepackage[centertags]{amsmath}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[all]{xy}
+\usepackage[left=1.1in, right=0.8in, top=0.8in, bottom=1in]{geometry}
+\renewcommand\bibname{References}
+
+
+\def\i{{\imath}}
+\def\Ker{{\operatorname{Ker}}}
+\def\Im{{\operatorname{Im}}}
+
+% THEOREMS ---------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{con}[thm]{Conjecture}
+\newtheorem{cla}[thm]{Claim}
+%\newtheorem{References}{thebibliography}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{cond}[thm]{Condition}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+
+\numberwithin{figure}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\numberwithin{equation}{subsection}
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+
+% MATH ----------------------------------------------------
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Aa}{\mathbf{A}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\BOP}{\mathbf{B}}
+\newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+\newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Field}{\mathbb{F}}
+\newcommand{\RPlus}{\Real^{+}}
+% -----------------------------------------------------------
+
+
+\begin{document}
+
+
+{\begin{titlepage}
+ \begin{center}
+\textsc{\textbf{ JARAMOGI OGINGA ODINGA UNIVERSITY OF SCIENCE AND TECHNOLOGY\vskip 12mm SCHOOL OF MATHEMATICS AND ACTUARIAL SCIENCE}\\
+\vskip 12mm
+Department of Applied Statistics, Financial Mathematics and Actuarial Science }\vskip 12mm
+\textbf{INTEGRATED MATHEMATICAL MODEL OF HIV AND AIDS MINIMIZATION AND OPTIMIZATION STRATAGEM  }\\
+\vskip 12mm \textsc{\emph{A Research Proposal Submitted in Partial Fulfilment of the Requirements of the Award of the Degree of Master of Science in Applied Statistics}
+\vskip 8mm
+BY\vskip 9mm KIBIKA JOHNSTONE WANJALA\vskip 1mm W151/4540/2013\\
+\vskip 3mm
+Signature:.....................Date:..................................}\\
+\vskip 13mm \flushleft \center{\textbf{  SUPERVISORS}}\vskip 8mm
+\begin{tabular}{ll}
+1. Dr. Francis Odundo&2. Dr. Zablon Muga  \\
+Department of Applied Statistics,   &Department of Applied Statistics, \\
+Financial Mathematics and Actuarial Science &Financial Mathematics and Actuarial Science\\
+Jaramogi Oginga Odinga University&Jaramogi Oginga Odinga University   \\
+of Science and Technology&  of Science and Technology \\
+
+ Signature:.................... Date:.............&Signature:....................
+Date:.............
+\end{tabular}
+\end{center}
+
+\end{titlepage}
+
+
+
+\newpage
+\tableofcontents \pagenumbering{roman}
+
+\newpage
+\textbf{Abbreviations and Acronyms}\\
+
+\begin{tabular}{l@{$\dots\dots$}p{12cm}}
+HIV\dotfill & Human Immunodeficiency Virus\\ 
+AIDS\dotfill & Acquired Immunodeficiency Syndrome\\
+VMMC\dotfill & Voluntary Medical Male Circumcision\\
+PrEP\dotfill & Pre - Exposure Prophylaxis \\
+ART\dotfill  & Antiretroviral Therapy\\
+ARV\dotfill  & Antiretroviral\\
+UNAIDS\dotfill & Joint United Nations Programme on HIV and AIDS\\ 
+SSA\dotfill	 & Sub - Saharan Africa \\
+NACC\dotfill & National Aids Control Council \\
+VCT\dotfill	 & Voluntary Counselling and Testing Centre \\
+TB\dotfill	& Tuberculosis \\
+MCH\dotfill	& Mean Corpuscular Hemoglobin or Mean Cell Hemoglobin \\
+IBM SPSS\dotfill & International Business Machines Statistical Package for Social Scientists \\
+CDC\dotfill & Centers for Disease Control and Prevention \\
+STIs\dotfill & Sexually Transmitted Infections \\
+KAIS\dotfill & Kenya AIDS Indicator Survey \\
+PMTCT\dotfill & Prevention of Mother-to-Child Transmission \\
+VL\dotfill	& Viral Loads \\
+WHO\dotfill	& World Health Organization \\
+HBT\dotfill	& Home-Based Voluntary Counselling and Testing \\
+USA\dotfill	& United States of America \\
+IVRs\dotfill & Intravaginal Rings \\
+CD4\dotfill & Cluster of Differentiation 4 \\
+HAART\dotfill & Highly Active Antiretroviral Therapy \\
+MSM\dotfill	 & Men who have sex with men \\
+\end{tabular}
+
+\addcontentsline{toc}{section}{Abbreviations and Acronyms}
+
+\listoffigures 
+\addcontentsline{toc}{section}{List of Figures}
+
+\newpage
+%\pagenumbering{roman}
+\section*{ Abstract}
+\noindent In response to severe Human Immunodeficiency Virus (HIV) epidemic in Homa Bay County, one of the worst hit counties in Kenya, there is an urgent need to evaluate HIV prevention interventions thereby improving our understanding of what works, under what circumstances and what is cost-effective. To realise full benefits of antiretroviral therapy (ART) for HIV and AIDS and other mitigation measures, we will seek to construct an integrated mathematical modelling approach that could achieve greatest possible prevention impact using a variety of prevention intervention measures through minimization and optimization strategy. Prior modelling studies have not considered concurrent inclusion of secondary HIV transmission, VCT services, VMMC and behaviour change, which this study find to be important consideration in the current context. Therefore, this study will use integrated mathematical approach to model HIV and AIDS prevention measures. The main objective of this study is to develop an integrated mathematical modelling approach to HIV and AIDS intervention measures, minimization and optimization stratagem in an effort to reduce HIV and AIDS incidence and prevalence. To design, and use an integrated mathematical model to evaluate possible effectiveness of combination of biomedical and social behaviours for HIV prevention in measuring the greatest net gain in health benefits. To investigate whether intervention measures, minimization of costs and optimization approaches are feasible in dealing with hyper endemic epidemic in settings with limited resources. The data will be collected from Homa Bay County including population based surveys, behavioural surveillance surveys, specially designed surveys, patient tracking systems, Health Information Systems, Sentinel Surveillance, Public Sector Reporting System, Kenya AIDS Responses Progress Reports, Kenya HIV Estimates, Kenya AIDS Indicator Surveys and National AIDS Control Council. The collected data will be analysed using IBM SPSS and R to provide data points used to describe the status of the epidemic and provide measurements to help develop portfolios of biomedical prevention approaches using mathematical model that can help in achieving maximum impact. Our aim will be to predict the short-term and long-term impact of combined interventions on HIV and AIDS in the population. We propose that integrating prevention and cure strategies using a mathematical model has the potential of being an effective tool in predicting dynamics of HIV and AIDS and assessing success of intervention measures.
+\addcontentsline{toc}{section}{Abstract}
+
+\newpage
+ \pagenumbering{arabic}
+\chapter{Introduction}
+\section{Mathematical background}
+\noindent The discovery of the Human Immunodeficiency Virus (HIV) early 1980s as reported by Gallo, Sarin, Gelmann, Robert-Guroff, Richardson, Kalyanaraman, Mann, Sidhu, Stahl, Zolla-Pazner, Leibowitch and Popovic \cite{Gallo} followed after the first cases of Acquired Immunodeficiency Syndrome (AIDS) were reported by Stahl, Friedman-Kien, Dubin, Marmor and Zolla-Pazner \cite{Stahl}. In 2017, the Joint United Nations Programme on HIV and AIDS (UNAIDS) reported a prevalence of 36.7 million having a reported annual incidence of 1.8 million UNAIDS \cite{UNAIDS}. However, over the last decade, UNAIDS \cite{UNAIDS} has noted an improvement of treatment regimen including use of ART, which reduced by 42 per cent the risk of one dying from AIDS.\\
+
+\noindent According to Prague \cite{Prague} report, it was observed that mortality patterns in individuals infected with HIV having high CD4 counts and undergoing ART treatments are similar to those in the general population. Thus, treatment, management coupled with optimization could be the main concern, though it may require better understanding of the scenario, possibly through mathematical modelling of the HIV infection, combined treatment options and prevention dynamics.\\
+
+\noindent In Sub-Saharan Africa (SSA), Kenya's HIV prevalence rate stands at 6 per cent with close to 1.6 million of the population living with HIV and AIDS WHO \cite{WHO}. Kenya has been identified as one of six HIV and AIDS 'high burden' countries within African continent WHO \cite{WHO}. Within Kenya, the counties of Homa Bay, Siaya, Kisumu, Migori, Kisii and Turkana are the worst affected with HIV prevalence rates of 26.0\%, 23.7\%, 19.3\%, 14.7\%, 8\% and 7.6\% respectively NACC \cite{NACC}.\\
+
+\noindent According to National Aids Control Council, NACC \cite{NACC}, Siaya County surpassed Homa Bay County with a recorded prevalence rate of 21.0\%, an increase from previous years with HIV prevalence in the county being four times that of the whole country, however, HIV and AIDS prevalence remains exceptionally high in Homa Bay County. The key drivers for this high prevalence rate in Homa Bay County includes high poverty index, social behaviours, boda boda riders, single mothers, sex for fish and drug defaulting, NACC \cite{NACC}.\\
+
+\noindent The advent of antiretroviral therapy (ART) in 1996 has had a dramatic impact on patients' health by improving their survival with HIV and AIDS, initially in well-endowed resource regions and then in resource-limited settings as observed in a study by Freedberg, Possas, Deeks, Ross, Rosettie, Mascio, Collins, Walensky and Yazdanpanah \cite{Freedberg}.  Mitchell, Lépine, Terris-Prestholt, Torpey, Khamofu, Folayan, Musa, Anenih, Sagay, Alhassan, Idoko and Vickerman \cite{Mitchell} demonstrated efficacy of prevention measures that have been added to armamentarium of these healthcare approaches.\\
+
+\noindent Effective HIV and AIDS intervention strategy is expected to result in substantial reduction of HIV and AIDS transmission in people maintaining low viral load or undetectable as demonstrated in a study by Cori, Ayles, Beyers, Schaap, Floyd, Sabapathy, Eaton, Hauck, Smith, Griffith, Moore, Donnell, Vermund, Fidler, Hayes and Fraser \cite{Cori}. Kenya adopted the 'testing and treatment' paradigm pursued under Voluntary Counselling and Testing (VCT) centres as part of this strategy. In essence, efforts initiating early treatment for individuals testing positive are critical in preventing HIV and AIDS among sexual partners. To achieve significant protection, individuals must strive to always practice safe sex and maintain complete viral suppression.\\
+
+\noindent Mathematical modelling allows analysing in a single framework the effect of combining interventions, and thus takes into account synergistic effects between components of combined prevention package. This approach helps in exploring complex scenarios of interventions in circumstances that may be difficult to implement like very long term effect.\\
+
+\noindent In this study, we propose to use an integrated mathematical modelling approach to estimate the effects of combined variety of prevention intervention measures and identify the minimization of costs and correlated optimization of HIV and AIDS treatment approaches that could offer optimum results. Mathematical modelling can be an effective tool in assessing impact of preventive intervention measures on local HIV epidemics as noted by Garnett, Cousens, Hallett, Steketee and Walker \cite{Garnett} because of feasible indirect benefits to the members in the population who do not directly receive the intervention. By providing insights into possible potential benefits of HIV and AIDS prevention strategies, mathematical models can be instrumental in giving guidance on the value of pursuing specific research strategies.\\
+
+\section{Statement of the problem}
+\noindent Prior modelling studies considered impact of combined interventions on HIV and AIDS treatment approaches. Such recent studies by Mitchell, Prudden, Washington, Isac, Rajaram, Foss, Terris-Prestholt, Boily and Vickerman \cite{Mitchell} considered modelled combinations of expanded ART and PrEP, Blaizot, Maman, Riche, Mukui, Kirubi, Ecochard and Etard \cite{Blaizot} considered only three combined interventions VMMC, ART and PrEP while a more recent and current one by Egger, Althaus, Leigh, Sch\"{o}ni, Salanti, Low and Norris \cite{Egger} examined the possibility of including mathematical modelling in developing treatment approaches following WHO guidelines that inform treatment of HIV and AIDS. However these studies did not concurrently include secondary HIV transmission, VCT services, VMMC and behaviour change, which we find to be important consideration and which can be easily extrapolated to fit our study context. Therefore, we propose to use integrated mathematical approaches to model HIV and AIDS prevention measures.\\
+
+\section{Objectives of the study}
+The objectives of the study are:
+\begin{itemize}
+  \item [(i).] To develop integrated mathematical model of HIV and AIDS, minimization and optimization stratagem in an effort to reduce HIV and AIDS incidence and prevalence in the area of our study.
+  \item [(ii).] To use integrated mathematical model to evaluate possible effectiveness of combination of biomedical and social behaviours for HIV prevention in measuring the greatest net gain in health benefits.
+  \item [(iii).] To investigate whether intervention measures, minimization of costs and optimization can be feasible in dealing with hyper endemic epidemic in settings with limited resources.
+\end{itemize}
+\section{Significance of the study}
+How this study will help in solving the problem
+\begin{itemize}
+\item [(a)]	Findings from this research may be shared with other researchers and healthcare policy makers so that they may review their existing intervention measures or plan their intervention measures in a more effective way.
+\item [(b)]	To establish integrated configuration of current and future intervention measures that will maximize prevention efforts while minimizing costs and optimizing benefits.
+\item [(c)]	To assist policy makers in estimating cost-effectiveness of combinations of HIV and AIDS programs and allocating limited resources most effectively and efficiently.
+\item [(d)]	In the absence of costly, multi-intervention clinical trials, a mathematical model will play a critical role by augmenting existing data sources and help in forecasting future epidemic trends under different scenarios.
+\item [(e)]	The spread of HIV follows a pattern based on a simplified Markov model of the natural history of HIV and AIDS in the absence or presence of ART. We will project HIV incidence under current conditions, and we will consider the impact of combination interventions by changing model parameters accordingly.
+\end{itemize}
+\noindent Clinical studies have demonstrated the efficacy of new interventions in the prevention of HIV infections and treatment but mathematical models are still needed in predicting impact of HIV and AIDS in a population without resorting to evaluations that deploy experimental designs. The key question is how does an integrated mathematical model translate to improved HIV prevention interventions? This leads to many related questions on the optimisation of HIV prevention intervention measures and cost effectiveness and their impact on populations. We are discussing about translational research from 'bedside to population side'.\\
+
+\noindent We theorise that integrated mathematical modelling approach could contribute to the optimization of HIV and AIDS prevention intervention measures and which will substantially reduce HIV incidence and prevalence as well as minimise the costs of treatment, which is a cost-effective approach.\\
+
+\chapter{Literature review}
+\section{Introduction}
+\noindent In this section, we will review the current trends in HIV prevention measures using mathematical models. There are several studies about mathematical modelling in the literature. The literature has been surveyed by considering the characteristics of mathematical models on HIV transmission and prevention measures.\\
+
+\noindent Odundo, Simwa and Ongati \cite{Odundo} examined progression of HIV infection using a mathematical model by formulating a deterministic model for HIV and AIDS in which total number of human population was given as:
+$$N(t)=S(t)+I_{H}(t)+T(t)+A(t)$$
+\noindent where N(t)is total human population, S(t)is population of humans susceptible to HIV infection, $I_{H}(t)$HIV infected individuals who are yet to display symptoms, $T(t)$ treated individuals who are HIV positive and $A(t)$ full blown AIDS patients. The study show asymptomatic nature of HIV and AIDS infection. Furthermore, the model depicts an increase in AIDS population when there is no treatment, that is, $\delta=0$ while the converse is true given the benefits of using ARV's.\\
+
+\noindent Hargrove, Williams, Abu-Raddad, Auvert, Bollinger, Dorrington, Ghani, Gray, Hallett, Kahn, Lohse, Nagelkerke, Porco, Schmid, Stover, Weiss, Welte, White and White \cite{Hargrove} interrogated three stellar studies done in South Africa, Kenya and Uganda demonstrating the importance of male circumcision in reducing the risk of acquiring HIV by almost 60\%.  The study examined three models: the deterministic compartmental model; stochastic simulation model and individual-based micro-simulation model that were basically modelled as stochastic events. The deterministic compartmental model considered random mixing model depicted as:
+$$\Lambda^{m}=\frac{\int_{0}^{\infty}xl^{m}(x) dx}{\int_{0}^{\infty}xN^{m}(x) dx}$$
+\noindent Where $N^{m}(x)$is the probability density of the distribution of $x$ among men and $l^{m}(x) dx$ is the proportion of population that is HIV infected. The effects of HIV transmission can be determined by solving $\Lambda^{m}$ with assumption that $N^{m}(x)\thicksim Gamma (x, rp^{m}, \alpha^{m})$ where $r$ denoting the relative risk of circumcised males for being infected with HIV.\\
+
+\noindent Male-to-female transmission has been found to be generally more efficient compared to female-to-male transmission, which the study found to hold in the case of former Nyanza Province in view of the higher female than male HIV prevalence given higher HIV prevalence in women at 22.1\% and 19\% among men while Siaya recorded 22.4\% incidence among women and 19.4\% among men NACC \cite{NACC}. Figure 1 below illustrates the compartmental model:
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure1.eps}}\\
+  \caption{Compartmental Model}\label{Compartmental Model}
+\end{figure} \\
+\noindent The boxes of the compartmental model represent compartments in which the males or females can be associated with.  The arrows represent the movement of individuals between the different compartments. The progression of disease is subdivided into 2 stages with early and late stage. After circumcision the men move to circumcised boxes. The flow diagram for females is similar with exception of circumcised compartment.\\
+
+\noindent The symbols represent compartments and flows with M = male, $F$ = female; first subscript $1$ = low risk group; $2$ = high risk group; while second subscript $1$ = uninfected, $2$ = early HIV; $3$ = late HIV; $4$ = circumcised and uninfected. The flows from $a$ = from low risk to high risk group; $b$ = from high risk to low risk group; $c$ = circumcision, $i$ = infection; $p$ = progression to late stage HIV infection and $q$ = death.\\
+
+\noindent For females, there are 6 compartments with $F_{11}$ representing HIV negative low risk females who are not involved in sex work; $F_{12}$   representing females not involved in sex work during early stages of HIV infection; $_{13}$   represent females not involved in sex work during their late (r) stage of the HIV infection; $F_{21}$ represent HIV female sex workers who are negative; $F_{22}$ representing women sex workers during early stages of HIV infection and $F_{23}$ representing women sex workers during the late $(r)$ stage of HIV infection.\\
+
+\noindent For the males, there are 8 compartments. $M_{11}$ representing males who are not clients of sex workers and they are HIV uninfected and uncircumcised. $M_{14}$ representing males who are not clients of sex workers and HIV uninfected and circumcised. $M_{12}$ represent males who are not clients of sex workers during the initial stages of HIV infection and they are either circumcised or not circumcised. $M_{13}$ are males who are not clients of sex workers during late (r) stage of HIV infection and they are either circumcised or not. $M_{21}$ represent men who are clients of sex workers but they are HIV uninfected and uncircumcised. $M_{24}$ represent men who are clients of sex workers and they are HIV uninfected and circumcised. $M_{22}$ represent men who are clients of sex workers during initial stages of HIV infection and they are either circumcised or not. $M_{23}$ are men who are clients of sex workers during late (r) stage of HIV infection and they are either circumcised or not.\\
+
+\noindent The study also examined the stochastic simulation model used in estimating impact of ART and HIV vaccines on HIV transmission using the equation, $R_{o}=\gamma Dc$ where $\gamma$ is the probability of HIV transmission per sex act,$D$ is the total number of coital acts during the infectious period and $c$ is average number of HIV negative partners for each infected individual. Under individual-based model, the authors simulated the natural history of HIV and its transmission in relation to sexually transmitted infections (STIs) in which heterosexual relationships and STIs transmissions during contacts between sexual partners were modelled as stochastic events involved in a steady relationship, short-lived relationship and prostitution and their effects on HIV spread.\\
+
+\noindent In a steady relationship, new time during a change of current partner is modelled using
+$$f(t)=\frac{1}{\mu}\ell^{-\frac{t}{\mu}}$$
+\noindent where $\mu$ is mean time till available to another individual in simulated life:\\
+$$\mu= \frac{T_{s,r}}{(r_{s,a.p}}$$
+with $T_{s,r}$ and the time interval dependent on an individual's sex and relationship status $r$ whether current relationship is steady or short or none,$T_{s,a}$ sex and age (a) group specific promiscuity factor and $\rho$ personal promiscuity level $(\rho)$ is determined by gamma distribution function:
+$$f(\rho)=\frac{1}{\beta^{\alpha}\gamma(\alpha)}.\rho^{\alpha-1}.\ell^{-\frac{\rho}{\beta}}$$
+\noindent This study point to significant implication of HIV transmission among sexual partners in relation to social behaviours.\\
+
+\noindent Blaizot et al. \cite{Blaizot} presented a mathematical model in which data from Ndhiwa HIV Impact in Population Survey was used in comparing impacts on HIV prevalence and HIV incidence rate as well as viral load suppression in the population using various interventions such as improving the cascade of care under WHO 2013 guidelines and PrEP use among HIV-uninfected women.\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure2.eps}}\\
+  \caption{Simplified Compartmental Model}\label{Simplified Compartmental Model}
+\end{figure}\\
+The notation used in the model:
+\begin{itemize}
+  \item [S]: Susceptible individuals in the population under study
+  \item [$l_{1}$]: HIV-positive and untreated individuals having CD4 cell count $>350$ cells/mm3
+  \item [$l_{2}$]: HIV-positive and untreated individuals having CD4 cell count $\leq350$ cells/mm3
+  \item [T]: HIV-positive individuals on ART
+  \item [D]: Deceased individuals
+  \item [$\lambda_{s}$]: Force of infection
+  \item [$\lambda_{1}$]: Immunosuppression rate
+  \item [$\lambda_{T}$]: Treatment rate
+  \item [$\mu_{s}$]: Mortality rate of individuals in compartment $S_{1}$
+  \item [$\mu_{l_{1}}$]: Mortality rate of individuals in compartment $l_{1}$
+  \item [$\mu_{l_{2}}$]: Mortality rate of individuals in compartment $l_{2}$
+  \item [$\mu_{T}$]: Mortality rate of individuals in compartment $T$
+\end{itemize}
+\noindent The boxes represent model compartments with arrows representing transitions between compartments. The results from model show a reduced overall HIV incidence rate by 46\% and 58\%.\\
+
+\noindent Furthermore, the study noted that under the treat-all strategy using current Kenyan guidelines, VMMC and PrEP would reduce HIV incidence rate by 15\%-25\% and 22\% - 28\%. Combining the WHO 2013 guidelines with VMMC would reduce the HIV incidence rate by 35\% - 56\% and combining the treat-all strategy with VMMC would reduce it by 49\%-66\%. Considering a combination of WHO 2013 guidelines, VMMC and PrEP would lead to a reduction of HIV incidence rate by 46\%-67\%.\\
+
+\noindent In conclusion, the study observed that implementing WHO 2013 guidelines as demonstrated by Priya \cite{Priya} is relatively efficient in curbing the spread of HIV. Blaizot, Huerga, Riche, Ellman, Shroufi, Etard and Ecochard \cite{Bla} investigated the effect of combined HIV interventions in hyper endemic settings using a mathematical model on data drawn from Eshowe and Mbongolwane HIV impact in Population Survey. The model used was the modified compartmental model that had been designed to describe the HIV transmission by Blaizot et al. \cite{Blaizot} illustrated in Figure 2.\\
+
+\noindent The study found that VMMC combined with ART decreased HIV incidence by 24\%. The study postulated that ART initiation combined with VMMC and PrEP using South African guidelines could be effective in reducing HIV incidence to low levels among young women in Mbongolwane and Eshowe.\\
+
+\noindent However, this study mainly focussed on the combination of ART, VMMC and PrEP, although comprehensive combination HIV prevention interventions could include a wide range of interventions and possible cost analysis to gauge for sustainability, which is one of the objectives of this study.\\
+
+\noindent Kok, Rutherford, Gustafson, Barrios, Montaner and Vasarhelyi \cite{Kok} designed a system dynamics model. The study investigated stochastic agent-based model in assessing impact on HIV incidence after increasing testing, ART coverage and frequency. The study further analysed relative effectiveness of HIV screening randomly and contact tracing by use of differential equation models, staged-progression model and differential infectivity model. The cost-effectiveness threshold is dependent on many factors such as screening programs and contact screening in which optimal mix of the programs can result to minimization of total testing costs of the threshold.\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure3.eps}}\\
+  \caption{Model Compartments}\label{Model Compartments}
+\end{figure}\\
+The \textbf{\emph{a}} represents targeted testing and routine testing in high prevalence settings; \textbf{\emph{b}} represent routine testing in acute care while \textbf{\emph{c}} represent diagnoses through symptom-based testing. The S represents HIV-negative, susceptible to infection; \textbf{\emph{E}} represents undiagnosed HIV-positive in acute phase; \textbf{\emph{L}} represent undiagnosed HIV-positive in latent phase; \textbf{\emph{A}} represent undiagnosed HIV-positive with AIDS; \textbf{\emph{W}} represents waiting to be linked to care.
+
+The subscripts for \textbf{L} notation:
+\begin{itemize}
+ \item [$L_{o}$]: Out of care
+ \item [$L_{c}$]: In care, off treatment
+ \item [$L_{T}$]: Treated, but not virologically suppressed
+ \item [$L_{s}$]: Treated, and virologically suppressed.
+\end{itemize}
+The subscripts for \textbf{A} notation:
+\begin{itemize}
+\item [$A_{o}$]: Out of care
+\item [$A_{c}$]: In care, off treatment
+\item [$A_{T}$]: Treated, but not virologically suppressed
+\item [$A_{s}$]: Treated, and virologically suppressed.
+\end{itemize}
+\textbf{1} links various parts of the diagram.
+
+\noindent Zhang, Gray and Wilson \cite{Zhang} used a standard population-level mathematical model of HIV transmission based on ordinary differential equations translated into six ordinary differential equations, one for each compartment describing changes in each state of the HIV where $S$ represented uninfected and potentially susceptible individuals; $l_{\mu}$ represented HIV infected individuals that are undiagnosed with their infection in either chronic or AIDS stage $A_{\mu}$, $l_{d}$ represented HIV-infected individuals that have been diagnosed with their infection and are in the chronic or AIDS stage $A_{d}$, $T$ represented those receiving antiretroviral treatment. The model consisted of the following differential equations describing change in number of individuals in each of the disease states:
+\begin{equation}\label{Eqn 1}
+   \frac{ds}{dt}=\pi-\lambda(t)S-\mu_{s}S
+\end{equation}
+
+\noindent where $\frac{ds}{dt}$ is the rate of change in the number of uninfected people; $\pi$ is new people entering population; $\lambda(t)S$ is per-capita rate of HIV transmission that depends on risk-related behaviour and prevalence of HIV among partners and $\mu_{2}S$ is the death rate for uninfected people.\\
+\begin{equation}\label{Eqn 2}
+   \frac{dl_{u}}{dt}=\lambda(t)S-\gamma l_{u}-\eta_{c}l_{u}-\mu_{c}l_{u}
+\end{equation}
+
+\noindent where $\frac{dl_{u}}{dt}$ is the rate of change in the number of undiagnosed chronic cases; $\lambda(t)S$ is per capita rate of HIV transmission; $\gamma l_{u}$ is rate of disease progression from chronic infection to AIDS stage; $\eta_{c}l_{u}$ is rate of HIV diagnosis for people in chronic stage; $\mu_{c}l_{u}$ is death rate for HIV-infected people in chronic stage.\\
+\begin{equation}\label{Eqn 3}
+   \frac{dA_{u}}{dt}=\gamma l_{u}-\eta_{a}A_{u}-\mu_{a}A_{u}
+\end{equation}
+
+\noindent $\frac{dA_{u}}{dt}$ is rate of change in the number of undiagnosed AIDS  cases; $\gamma l_{u}$ is rate of disease progression from chronic infection to AIDS stage; $\eta_{a}A_{u}$ is the rate of HIV diagnosis for people in AIDS stage and $\mu_{a}A_{u}$ is death rate for HIV-infected people in AIDS stage.
+\begin{equation}\label{Eqn 4}
+   \frac{dl_{d}}{dt}=\eta_{c}l_{u}-\gamma l_{d}-\mu_{c}l_{d}
+\end{equation}
+
+\noindent $\frac{dl_{d}}{dt}$ is the rate of change in the number of diagnosed chronic cases; $\eta_{c}l_{u}$ is the rate of HIV diagnosis for people in chronic stage; $\gamma l_{d}$ is rate of disease progression from chronic infection to AIDS stage and $\mu_{c}l_{d}$ is the death rate for HIV-infected people in chronic stage.
+\begin{equation}\label{Eqn 5}
+   \frac{dA_{d}}{dt}=\gamma l_{d}+\eta_{a}A_{u}-\tau A_{d}+\sigma T-\mu_{a}A_{d}
+\end{equation}
+
+\noindent where $\frac{dA_{d}}{dt}$ is the rate of change in the number of diagnosed AIDS cases; $\gamma l_{d}$  is the rate of disease progression from chronic infection to AIDS stage; $\eta_{a}A_{u}$ is the rate of HIV diagnosis for people in AIDS stage; $\tau A_{d}$ is the rate of diagnosed people in AIDS stage initiating treatment; $\sigma T$ is the rate of people on ART stopping treatment and $\mu_{a}A_{d}$ is the death rate for HIV-infected people in AIDS stage.
+\begin{equation}\label{Eqn 6}
+   \frac{dT}{dt}=\tau A_{d}-\sigma T - \mu_{t}T
+\end{equation}
+
+\noindent Where $\frac{dT}{dt}$ is the rate of change in the number of people on ART; $\tau A_{d}$ is the rate of diagnosed people in AIDS stage initiating treatment; $\sigma T$ is the rate of people on ART stopping treatment and $\mu_{t}T$ is the death rate for people on ART. The model tracks the individuals who are HIV-infected as the disease progresses through the long chronic infection stage (asymptomatic) to late-stage infection or individuals who are diagnosed as HIV-positive typically change their behaviours in order to reduce onward transmission to others, in suggesting that a four-fold increase in testing rates can prevent approximately 42, 000 new HIV infections in China among at-risk groups over a 5 year period.\\
+
+\noindent Boily, Lowndes, Vickerman, Kumaranayake, Blanchard, Moses, Ramesh, Pickles, Watts, Washington, Reza-Paul, Labbe, Anderson, Deering and Alary \cite{Boily} evaluated large-scale HIV prevention interventions by combining empirical, biological and behavioural data from various subpopulations in the area of interventions using tailor-made HIV transmission dynamic models embedded within a Bayesian framework.
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure4.eps}}\\
+  \caption{Bayesian Framework}\label{Bayesian Framework}
+\end{figure}\\\\\\\\\\\\\\\\\\\\\\
+
+\noindent The results of the study illustrated intervention effectiveness. Furthermore, the authors using mathematical modelling provided quantitative combination impact estimates and cost effectiveness, which is an issue of ever-increasing importance in a context of limited funding and competing public health priorities.\\
+
+\noindent Paquette, Schanzer, Guo, Gale-Rowe and Wong \cite{Paquette} investigated the impact of HIV and AIDS treatment as a prevention measure by assessing the potential prevention benefits of HIV and AIDS treatment by reviewing mathematical models in resource-rich countries.\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure5.eps}}\\
+  \caption{Schematic of Model Structure}\label{Schematic of Model Structure}
+\end{figure}\\
+Mathematically, the model equations are:
+$$S_{t+30}=S_{t}-(S_{t}\beta_{o}\underset{j=0}{\overset{4}{\sum}}I_{t}^{(j)}\gamma ^{(j)}(I-\delta^{(j)})/N)+\lambda$$
+$$l_{t+30}=l_{t}-(S_{t}\beta_{o}\underset{j=0}{\overset{4}{\sum}}I_{t}^{(j)}\gamma ^{(j)}(I-\delta^{(j)})/N)-\mu$$
+
+Notation:
+\begin{itemize}
+    \item [$S_{t}$]: Number of susceptible individuals at time t
+    \item [$\beta_{o}$]: Baseline population force of infectivity
+    \item [$I_{t}^{(j)}$]: Number of individuals in viral load category j at time t
+    \item [$\gamma^{(j)}$]: Increase in infectivity associated with viral load category j relative to baseline
+    \item [$\delta^{(j)}$]: Decrease in risk behaviour associated with viral load category j relative to baseline
+    \item [$N$]: Total number of individuals in the population (susceptible and infected)
+    \item [$\lambda$]: Net annual migration into susceptible population
+    \item [$\mu_{t}$]: Mortality rate at time t
+\end{itemize}
+\noindent The study examined the potential interactions between treatment as prevention and other HIV treatment strategies. The results obtained suggest that the impact associated with the expansion of HIV treatment rates on expected new HIV infections can decrease to 76\% depending on assumptions, time horizon and form of treatment model. The study also show that increased HIV testing, reduction of risky practices and reduction of sexually transmitted infections, which were predictive as significant approaches for reducing HIV infections.\\
+
+\noindent Long and Stavert \cite{Long} highlighted the importance of combined prevention approach using testing, treatment, microbicides, male circumcision and PrEP that may help in decreasing HIV transmissions by approximately over 60\% and was cost-effective in South Africa using the model:\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure6.eps}}
+  \caption{Compartmental Model}\label{Compartmental Model}
+\end{figure}
+
+\noindent Where PV is preventive vaccine; c is circumcision; ART is Antiretroviral Therapy.\\
+
+\noindent Compartmental model variables:
+\begin{itemize}
+    \item [$X_{i}t$]: Number of individuals in compartment i at time t
+    \item [$\rho_{i}$]: Entry rate of people into compartment i
+    \item [$\mu_{i}$]: Mortality and maturation rate for individuals in compartment i
+    \item [$r$]: Annual discount rate
+    \item [$\theta_{i}$]: HIV disease progression rate for individuals in compartment i
+    \item [$c_{i}$]: Annual healthcare cost for individuals in compartment i
+    \item [$q_{i}$]: Quality of life adjustment for individuals in compartment i
+    \item [$\rho v_{i}$]: Preventive vaccination rate for individuals in compartment i
+    \item [$\frac{1}{\omega_{pv}}$]: Average duration of preventive vaccine
+    \item [$\epsilon_{pv}$]: Preventive vaccine efficacy in reducing HIV acquisition in uninfected individuals
+    \item [$\delta_{pv}^{s}$]: Preventive vaccine efficacy in reducing sexual infectivity in infected individuals
+    \item [$\delta_{pb}^{d}$]: Preventive vaccine efficacy in reducing drug injection infectivity in infected individuals
+    \item [$P_{pv}$]: Change in number of sexual partners due to preventive vaccination
+    \item [$C_{pv}$]: Cost of preventive vaccine
+    \item [$\varepsilon_{c}$]: Circumcision efficacy in reducing HIV acquisition in uninfected individuals
+    \item [$\delta_{c}^{s}$]: Circumcision efficacy in reducing sexual infectivity in infected individuals
+    \item [$\phi_{i}$]: Fraction of individuals from compartment i who begin HAART at $CD4 = 350 cells/mm^{3}$
+    \item [$\varphi_{i}$]: Rate of individuals from compartment i who begin HAART at $CD4<350 cells /mm^{3}$
+    \item [$\delta_{h}^{s}$]: HAART efficacy in reducing sexual infectivity in infected individuals
+    \item [$\delta_{h}^{d}$]: HAART efficacy in reducing drug injection infectivity in infected individuals
+    \item [$d_{i}$]: Average number of drug injections per year by individuals in compartment i
+    \item [$S_{i}$]: Fraction of shared drug injections by individuals in compartment i
+    \item [$\tau_{i,j}$]: Probability of infection transmission per shared injection between an uninfected individual in compartment i and an infected individual in compartment j
+    \item [$\pi^{k}$]: Probability of infection transmission per shared injection between an uninfected individual and an individual with HIV status $\kappa$, where $\kappa$ = asym (asymptomatic HIV), sym (symptomatic HIV), aids (AIDS)
+    \item [$\eta_{i}^{s}$]: Average number of same-sex sexual partners per year by individuals in compartment i
+    \item [$\eta_{i}^{o}$]: Average number of opposite-sex sexual partners per year by individuals in compartment i
+    \item [$\mu_{i}^{s}$]: Condom usage among same-sex sexual partnerships by individuals in compartment i
+    \item [$\mu_{i}^{o}$]: Condom usage among opposite-sex sexual partnerships by individuals in compartment i
+    \item [$k$]:Condom effectiveness in reducing HIV transmission
+    \item [$\sigma_{i,j}$]: Annual probability of infection transmission per unprotected sexual partnership between an uninfected individual in compartment i and an infected individual in compartment j
+    \item [$\pi_{mf}^{k}$]:Annual probability of infection transmission per unprotected sexual partnership between an uninfected male and a female with HIV status $\kappa$, where $\kappa$= asym (asymptomatic HIV), sym (symptomatic HIV), aids (AIDS)
+    \item [$\pi_{fm}^{k}$]:Annual probability of infection transmission per unprotected sexual partnership between an uninfected female and a male with HIV status $\kappa$, where $\kappa$ = asym (asymptomatic HIV), sym (symptomatic HIV), aids (AIDS)
+    \item [$\pi_{mm}^{k}$]:Annual probability of infection transmission per unprotected sexual partnership between an uninfected male and a male with HIV status $\kappa$, where $\kappa$= asym (asymptomatic HIV), sym (symptomatic HIV), aids (AIDS)
+    \item [$\lambda_{i,j}(t)$]: Total sufficient contact rate at time t between uninfected members of compartment i and infected members of compartment j
+    \item [$\gamma_{i, j}^{s}(t)$]:Sufficient contact rate at time t between uninfected members of compartment i and infected members of compartment j due to drug injection (needle-sharing)
+    \item [$\beta_{i,j}^{s}(t)$]:Sufficient contact rate at time t between uninfected members of compartment i and infected members of compartment j due to same-sex (homosexual) partnerships
+    \item [$\beta_{i,j}^{o}(t)$]: Sufficient contact rate at time t between uninfected members of compartment i and infected members of compartment j due to opposite-sex (heterosexual) partnerships
+\end{itemize}
+\noindent The study introduced the critical concept of combinations of HIV prevention strategies and further demonstrated how some of the approaches operate synergistically while HIV screening is intertwined with PrEP. HIV prevention programs can perform with additive, multiplicative or maximal effectiveness in HIV transmission impact. The study show that combination of HIV prevention package can led to substantial decrease in HIV transmission and could be very cost-effective. However, this study cannot be extrapolated to Kenyan settings in terms of cost-effectiveness as the resources in Kenya largely depend on the good will of already fatigued donors while local resources are severely limited.\\
+
+\noindent Sun, Myoungho, Nam, Min, Je, Jin, Su, Changsoo, Hee-Dae, Jeehyun, Davey and Jun \cite{Sun} used mathematical models in estimating the effects of early diagnosis, early treatment, and PrEP and on how they impact the local HIV and AIDS epidemic.\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure7.eps}}
+  \caption{Multistate HIV infection model for a MSM population}\label{Multistate HIV infection model for a MSM population}
+\end{figure}
+
+Notation:
+\begin{itemize}
+    \item [$X$]:The number of uninfected
+    \item [$Y_{1}$]: Number of undiagnosed and infected
+    \item [$Y_{2}$]: Number of diagnosed, infected without treatment
+    \item [$Y_{3}$]: Number of infected with treatment failure
+    \item [$Y_{4}$]: Number of infected with successful treatment
+    \item [$nx$]:Number of new uninfected each year
+    \item [$a$]: Proportion of new infections undiagnosed at seroconversion
+    \item [$V_{1}$]:Diagnosis rate
+    \item [$V_{2}$]:Treatment uptake rate
+    \item [$S$]:Proportion of successful treatments
+    \item [$u_{3}$]:Treatment cessation rate due to treatment failure
+    \item [$u_{4}$]: Treatment cessation rate due to successful treatment
+    \item [$V_{3}$]: Treatment success rate
+    \item [$\omega_{4}$]:Treatment relapse rate
+    \item [$h_{1}$]:Rate of AIDS death for undiagnosed
+    \item [$h_{2}$]:Rate of AIDS death for diagnosed
+    \item [$h_{3}$]:Rate of AIDS death for infected after treatment failure
+    \item [$h_{4}$]: Rate of AIDS death for infected after successful treatment
+\end{itemize}
+
+\noindent The model has the following transmission equations:\\
+
+            $\frac{dX}{dt}=nx-(g+K)X$
+
+            $\frac{dY_{1}}{dt}=aKX-(g+h_{1}+v_{1})Y_{1}$
+
+            $\frac{dY_{2}}{dt}=(1-a)KX+v_{1}Y_{1}+u_{3}Y_{3}-(g+h_{2}+v_{2})Y_{2}$
+
+            $\frac{dY_{3}}{dt}=(1-s)v_{2}Y_{2}+w_{4}Y_{4}-(g+h_{3}+v_{3}+u_{3})Y_{3}$
+
+            $\frac{dY_{4}}{dt}=sv_{2}Y_{2}+v_{3}Y_{3}-(g+h_{4}+u_{4}+w_{4})Y_{4}$
+
+                                                    $K=\frac{\sum=1K_{i}Y_{i}}{X+\sum=1Y_{i}}$
+
+                                                    $K_{1}=f_{p}f_{u}bc$
+
+                                                    $K_{2}=f_{p}f_{u}f_{d}bc$
+
+                                                    $K_{3}=f_{p}f_{u}f_{d}f_{tf}bc$
+
+                                                    $K_{4}=f_{p}f_{u}f_{d}f_{ts}bc$
+
+\noindent where:\\
+\begin{itemize}
+    \item [KX]: is the number of newly HIV incidences
+    \item [$Y_{1}-Y_{4}$]: is the current HIV infected regardless of the diagnosis or treatment
+    \item [bc]: Average probability of HIV transmission occurring to a partner (infectiousness)- average annual number of HIV-infected partners
+    \item [$f_{u}$]: Increased level of unprotected intercourse
+    \item [$f_{d}$]: Effect of diagnosis on reducing rate of unprotected between uninfected and diagnosed partners
+    \item [$f_{tf}$]:Average decrease in infectiousness as a result of treatment failure
+    \item [$f_{ts}$]: Average decrease in infectiousness as a result of successful treatment
+    \item [$f_{p}$]: Average decrease in infectiousness as a result of PrEP
+    \item [$K$]:HIV infection rate for uninfected represented by $K=\frac{\sum_{i}I^{4}KY_{i}}{X+\sum_{i}=I^{4}Y_{i}}$
+    \item [$K_{1}$]: HIV infection rate for infected and undiagnosed; $K_{1}=f_{p}f_{u}bc$
+    \item [$K_{2}$]:HIV infection rate for infected and diagnosed; $K_{2}=f_{p}f_{u}f_{d}bc$
+    \item [$K_{3}$]:HIV infection rate for infected with treatment failure; $K_{3}=f_{p}f_{u}f_{d}f_{tf}bc$
+    \item [$K_{4}$]:HIV infection rate for infected with successful treatment; $K_{4}=f_{p}f_{u}f_{d}f_{ts}bc$
+\end{itemize}
+
+\noindent The results of the model suggest that most effective HIV and AIDS prevention measures may include PrEP. However, the study noted that PrEP effectiveness may be lessened by increased practise of unsafe sex behaviour but it remains to be more beneficial compared to the current situation. In addition, this study did not give consideration of the cost-effectiveness of each of the intervention approaches because the study was only interested in measuring the change of HIV incidence or prevalence after implementing every intervention.\\
+
+\noindent Cori et al. \cite{Cori} investigated the feasibility of widespread provision of ART and whether this approach can substantially reduce population-level HIV and AIDS incidence. The study developed a mathematical model of HIV transmission in large populations in South Africa and Zambia.\\
+
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure8.eps}}
+  \caption{Model Structure for Susceptible Men}\label{Model Structure for Susceptible Men}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure9.eps}}
+  \caption{Model Structure for infected individuals}\label{Model Structure for infected individuals}
+\end{figure}
+
+The model equation below describes the intervention undertaken:
+$$\tau_{test}-(t, arm)=\tau_{test-background}(t)+1_{{armxC}}1_{t>t_{start}\tau_{test-trial}(t)}$$
+$$\tau_{test}-(t, arm)=\tau_{test+background}(t)+1_{{armxC}}1_{t>t_{start}\tau_{test+trial}(t)}$$
+\noindent The results of the study highlighted the role of mathematical models in evaluating the impact of HIV treatment as a prevention measure.\\
+
+\noindent Granich, Gilks, Dye, De Cock and Williams \cite{Granich} used mathematical models in exploring the effect on HIV transmission under stochastic model and the long-term dynamics of HIV epidemic (deterministic transmission model) of testing all people in the study area who are aged 15 years and above for HIV every year and putting people on ART immediately after being diagnosed with HIV.\\
+
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure10.eps}}
+  \caption{Transmission Model for HIV infection and ART provision}\label{Transmission Model for HIV infection and ART provision}
+\end{figure}
+
+The notation used:
+\begin{itemize}
+    \item [$S$]: Susceptible class
+    \item [$BN$]:Rate of infection
+    \item [$D$]: Die
+    \item [$\mu$]: Background mortality rate
+    \item [$\tau$]: Rate of testing
+    \item [$\delta$]: AIDS progression rate
+\end{itemize}
+
+\noindent The study demonstrated that under optimistic assumptions, early diagnosis followed up immediately with early treatment of the newly HIV infected individuals can help in eradicating the HIV epidemic in a model study. The study found out that universal voluntary HIV testing and immediate start of ART combined with present HIV prevention approaches, could have a major effect on severe generalized HIV and AIDS epidemics.\\
+
+\noindent Abbas, Glaubius, Mubayi, Hood and Mellors \cite{Abbas} presented a mathematical model that show possible resistance, effectiveness and public impact as described in the model structure Figure 11 below:\\
+
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure11.eps}}
+  \caption{Model Structure}\label{Model Structure}
+\end{figure}
+
+\noindent The per capita force of infection for drug-sensitive $(\lambda_{gk}^{w})$ HIV-1 given by \\
+
+$$\lambda_{gt}^{w}(t)=\underset{I=1}{\overset{4}{\sum}}\frac{\widehat{c}_{gkl}(t)P_{gkl}(t)}{N_{g't}(t)}\underset{\Omega=1}{\overset{5}{\sum}}\underset{I\varepsilon 1}{{\sum}}\underset{V\varepsilon V}{{\sum}}\beta_{g'lk}^{IV\Omega}X_{g'l}^{IV\Omega}(t)$$
+\noindent where I is the set of ARV states and V is the set of HIV-1 variants that transmit wild-type (wild-type W and all reverted variants $r_{1}$, $r_{2}$, $q_{1}$, and $q_{2}$). The mathematical model clearly demonstrates that both PrEP and ART can simultaneously offer substantial HIV prevention. \noindent However, recognition of potential risks of ART and PrEP including antiretroviral resistance is critical in developing mitigating strategies, because the potential benefits of these new prevention strategies are substantial and there is a real public health risk in not implementing tools that work.\\
+
+\noindent Omondi, Mbogo and Luboobi \cite{Omondi} presented an HIV transmission model:\\
+\begin{figure}[htb]
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=0.8\textwidth]{{Figure122.eps}}
+  \caption{HIV Transmission Model}\label{HIV Transmission Model}
+\end{figure}
+
+Notation:
+\begin{itemize}
+    \item [$S$]: Susceptible class
+    \item [$I$]: Undiagnosed class comprising individuals unaware of their HIV status
+    \item [$I_{1}$]: HIV infected individuals with lower plasma viral load (CD4 cell count$\geq 350 cells /\mu l$)
+    \item [$I_{2}$]:HIV infected individuals with high plasma viral load (CD4 cell count $<350 cells /\mu l$)
+    \item [$I_{1}^{T} \& I_{2}^{T}$]: Treatment classes
+    \item [$\mu$]: Death-rate
+    \item [$\delta_{1}\delta_{2}$]:AIDS induced death-rate
+    \item [$\alpha_{1}$]: Progression rate from I to $I_{1}$
+    \item [$\alpha_{2}$]: Progression rate from $I$ to $I_{2}$
+    \item [$\eta_{1}$]: Progression rate from $I_{1}$ to $I_{2}$
+    \item [$\gamma_{1}$]: Treatment rates from $I_{1}$ to $I$
+    \item [$\gamma_{2}$]: Treatment rates from $I_{1}$ to $I$
+    \item [$\eta_{2} \& \eta_{2}$]:Immunological status
+\end{itemize}
+
+\noindent The researchers developed a mathematical model to be used in studying the effects of HIV and AIDS prevention, testing and treatment with ART based on a system of non-linear ordinary differential equations, with non-negative initial conditions:\\
+
+                                        $\frac{ds}{dt}=\pi-\lambda_{c}S-\mu S$
+
+                                        $\frac{dl}{dt}=\lambda_{c}S-((\alpha_{1}+\alpha_{2})\phi_{2}+\mu)I$
+
+                                        $\frac{dl_{1}}{dt}=\phi_{2}\alpha_{1}l-(\eta_{1}+\phi_{3}\gamma_{1}+\mu)l_{1}$
+
+                                        $\frac{dl_{2}}{dt}=\phi_{2}\alpha_{2}l+\eta_{1}l_{1}-(\phi_{3}\gamma_{2}+\mu + \delta_{1})l_{2}$
+
+                                        $\frac{dl_{1}^{T}}{dt}=\phi_{3}\gamma_{1}l_{1}+\eta_{2}l_{2}^{T}-(\eta_{3}+\mu)l_{1}^{T}$
+
+                                        $\frac{dl_{2}^{T}}{dt}=\phi_{3}\gamma_{2}l_{2}+\eta_{3}l_{1}^{T}-(\eta_{2}+\mu+\delta_{2})l_{2}^{T}$
+
+\noindent The study assessed the impact of combining different controls using simulations with numerical results indicating that sustained individual protection with simultaneous counselling and testing and combined with ART treatment can effectively reduce the transmission and the proliferation of HIV in the population. However, this study did not consider other factors fuelling the epidemic and the cost-effectiveness for the sustainability of any prevention measure.\\
+
+\newpage
+\textbf{Summary of Literature Review}
+
+\noindent From the review of the literature presented above, it can be inferred that studies on HIV and AIDS intervention measures using mathematical models have received considerable attention. However, these studies cannot be applied to Kenyan settings wholly due to cultural differences and lack of inclusively considering other variables. \\
+
+\noindent Odundo, Simwa and Ongati \cite{Odundo} demonstrated the importance of ARV in preventing further infection; however, this study will further model the significance of using multiple prevention measures. The studies by Hargrove et al. \cite{Hargrove};and Awad et al. \cite{Awad} demonstrated the significance of VMMC in reducing the risk of men acquiring HIV through female-to-male transmission, however, these studies did not consider combining various approaches such as using ART, PrEP, and so forth.  Studies by Blaizot et al. \cite{Bla} and Blaizot et al. \cite{Blaizot} examined treatment and prevention approaches through mathematical modelling under cascade of care using WHO 2013 guidelines with combination of VMMC, PrEP and ART which was successful in reducing HIV incidence, however, these studies did not consider cost-effectiveness of the interventions. Studies \cite{Kok} and  Zhang, Gray and Wilson \cite{Zhang} considered the impact of early diagnosis and immediate linkage to ART.\\
+
+\noindent Other studies on models included Mitchell \cite{Mitchell}, Boily \cite{Boily}, Paquette \cite{Paquette}, Long and Stavert \cite{Long}, Sun et al. \cite{Sun}, Granich et al. \cite{Granich}, Abbas et al. \cite{Abbas}, Omondi, Mbogo and Luboobi \cite{Omondi}, Egger et al. \cite{Egger} considered the impact of HIV transmission. However, there is scanty literature on investigation of integrated mathematical models encompassing a concurrent range of interventions: condom use; VMMC; early diagnosis; early ART; increased HIV testing; oral PrEP; offering intravaginal rings; long-acting injectable antiretroviral drugs, microbicides, education campaigns, cost-effectiveness and reducing poverty.\\
+
+\noindent For this reason, this study will seek to address impact of these interventions using integrated mathematical model to determine how it could impact HIV incidence in our study area.\\
+
+\chapter{Research methodology}
+\section{Introduction}
+\noindent In this section, we will propose data collection methods, statistical data analysis methods and software that will be used in analysing the data.\\
+\section{Data Collection}
+\noindent For the purpose of this study and in order to achieve the objectives outlined, we will collect both primary and secondary data. The secondary data will contribute toward the formation of background information needed by the researcher in order to build constructively the project and the reader to comprehend more thoroughly the outcomes. The primary data will be collected by the use of a questionnaire and interview will be carried out with providers of health care services and non-governmental organizations as well as government agencies such as NACC.
+Other sources of data will include site levels VMMC client registers. The primary indicators will be the total number of VMMCs performed; disaggregated indicators will include VMMC method, client age group, HIV test results among VMMC clients tested at VMMC sites, and attendance at post-operative follow-up visits within 14 days.\\
+\section{Sampling Design}
+\noindent In order to collect primary data the questionnaire survey technique will be used in drawing data from the 2010 - 2018 Kenya Demographic and Health Surveys. We will use data from local HIV surveillance systems and published studies. As the data will be summary statistics and will not include any identifiers that could link the data to individual subjects in the local HIV surveillance systems or participants from the published studies, consent will be waivered and integrated mathematical modelling protocol will be presented for approval.\\
+
+\noindent The sample population for the interviews will include VCT service providers working at Homa Bay County and Non-government Organizations working in collaboration with Kenya government. The technique of personal interview will be undertaken in order to reach the objectives since it is the most versatile and productive method of communication enabling spontaneity in responding to important questions. For the purpose of this study, semi-structured face to face interviews will be contacted involving interest groups; county health officials at Homa Bay County, NACC and non-governmental organizations.\\
+
+\noindent The questionnaire survey will consist of three parts. The first part will be designed to gather information about ART Services offered, VMMC services, PrEP, IVRs, microbicides and so forth. The second part will be designed to assess social behaviours of people in the area of study while the third part will be inquiring about classified data.\\
+
+\noindent For the purpose of this study random probability sampling employing Metropolis-Hastings algorithm will be used to carryout extensive Markov-Chain Monte-Carlo simulations for estimating the mean values of some unknown parameters Haario, Laine, Mira and Saksman \cite{Haario}, including risk-reduction rate of healthy populations (during 2010-2018), relative infectiousness of risk-reduction to non-testing subgroups, the per-act probability of unprotected intercourse resulting in an infection, and the relative infectiousness ratio of HIV positive people.\\
+\section{Data Analysis}
+\noindent Data collected will be analysed using IBM SPSS while R will be used in developing models. Least square fit using Matlab and Logistic regression will be used for analysis. Our integrated mathematical model for the HIV prevention measures will be calibrated using the surveillance data for the period 2010 - 2018 collected from Homa Bay County to examine preventive intervention trends, to identify minimization of costs and optimization of HIV and AIDS prevention measures.\\
+
+\noindent We will develop a deterministic compartmental model of heterosexual HIV transmission for study area and formulate assumptions about the costs and effects of a range of interventions. These interventions will be prioritized for populations and groups at the greatest risk Smith, Anderson, Harris, McGillen, Lee, Garnett and Hallett \cite{Smith}.\\
+
+\noindent A mathematical model will be set up to describe the dynamics of HIV transmission and intervention measures. The model will be calibrated by fitting it to the HIV testing and treatment data from 2010 to 2018. Validation of the model will be done by comparing its predicated value of HIV prevention measures between 2010 and 2018 data to be obtained. The validated model will be used in producing estimation of HIV incidences following an integrated mathematical model of intervention measures.\\
+\section{Model Structure}
+\noindent The model structure will be inspired by the models of Granich et al. \cite{Granich} and Mitchell et al. \cite{Mit}. In our base case analysis, we will assume that individual biomedical and social behaviour programs reduce the probability of HIV acquisition in uninfected individuals, which we will denote as intervention measures. However, the joint effectiveness of oral PrEP and microbicides or male circumcision has not been examined in a clinical trial setting. In the absence of such data, mathematical modelling will play an important role in evaluating joint effectiveness under different assumptions.\\
+
+\noindent Probabilistic cost-effectiveness analysis in which a mathematical model will be used with data from Homa Bay County to evaluate HIV impact in population survey and compare the impacts on HIV interventions. These interventions will include: improving the cascade of care, increasing VMMC, and implementing PrEP use among HIV-uninfected women. We will then proceed to construct an integrated mathematical model of HIV intervention measures, dividing the interventions into preventive and treatment groups and simulate the effects of early introduction to ART, diagnosis, use of PrEP in combining with other interventions on HIV incidence and prevalence levels of HIV infection.\\
+\noindent Aggregated HIV and AIDS surveillance data from 2010 to 2018 will be used for our model fitting:
+\begin{itemize}
+\item [(a)]	Annual combined number of new reports of HIV and AIDS
+\item [(b)]	Annual number of deaths due to HIV and AIDS among diagnosed
+\item [(c)]	Annual number of treatment enrolment
+\item [(d)]	Annual number of deaths due to HIV and AIDS and who are under ART treatment
+\item [(e)]	Annual number of the total population
+\item [(f)]	Annual number of medically  male circumcised
+\item [(g)]	Annual number of females using intravaginal rings
+\item [(h)]	Annual number of females using vaginal microbicides gel
+\item [(i)]	Annual number of females using PrEP
+\item [(j)]	Annual number of people visiting VCT and receiving counselling
+\end{itemize}
+\noindent We will use a compartmental ordinary differential equations model for simulating and projecting the HIV epidemic in Homa Bay County. Instead of the bilinear incidence and the standard incidence models Mitchell et al. \cite{Mit}, we will use Bernoulli process to describe the probability of HIV transmission. Bernoulli processes can more accurately describe the HIV transmission network among the populations by giving consideration for multiple sexual partners, type of sexual partner, differential condom use, and probability of transmission.\\
+
+ \noindent
+ \nocite{*}
+\begin{thebibliography}{12}
+\addcontentsline{toc}{section}{References}
+\bibitem{Abbas}\label{Abbas}
+ \textbf{Abbas U. L., Glaubius R., Mubayi A., Hood G. and Mellors J. W.,} Antiretroviral Therapy and Pre-exposure Prophylaxis: Combined Impact on HIV Transmission and Drug Resistance in South Africa. \emph{The Journal of Infectious Diseases}, Vol.208 No. 2 (2013), 224-234.
+\bibitem{Awad}\label{Awad}
+  \textbf{Awad S. F., Sgaier S. K., Lau F. K.,  Mohamoud Y. A.,  Tambatamba B. C., Kripke K. E. and Thomas A. G.,} Could Circumcision of HIV-Positive Males Benefit Voluntary Medical Male Circumcision Programs in Africa? Mathematical Modelling Analysis, \emph{PLoS ONE}, Vol.12, No.1 (2017), e0170641. doi:10.1371/journal.pone.0170641.
+ \bibitem{Bla}\label{Bla}
+\textbf{Blaizot, S., Huerga H., Riche B., Ellman T., Shroufi A., Etard J., Ecochard R.,} Combined Interventions to reduce HIV incidence in KwaZulu-Natal: A Modelling Study, \emph{BMC Infectious Diseases}, Vol.17, No.1 (2017), 2612-2615.
+\bibitem{Blaizot}\label{Blaizot}
+\textbf{Blaizot S., Maman D., Riche B., Mukui I., Kirubi B., Ecochard R.and Etard J-F.,} Potential impact of multiple interventions on HIV incidence in a hyper endemic region in Western Kenya: A modelling study, \emph{BMC Infectious Diseases}, Vol.16, No.181 (2016).
+\bibitem{Boily}\label{Boily}
+\textbf{Boily M-C., Lowndes C.M., Vickerman P., Kumaranayake L., Blanchard J., Moses S., Ramesh B.M., Pickles M., Watts C., Washington R., Reza-Paul S.,  Labbe A. C. Anderson R.M., Deering K.N. and Alary M.,} Evaluating large-scale HIV prevention interventions: Study design for an integrated mathematical modelling approach, \emph{Sexually Transmitted Infections},Vol.83,No.7 (2007), 582.
+\bibitem{Cori}\label{Cori}
+\textbf{Cori A., Ayles H., Beyers N., Schaap A., Floyd S., Sabapathy K., Eaton J.W., Hauck K., Smith P., Griffith S., Moore A., Donnell D., Vermund S.H., Fidler S., Hayes R. and Fraser C.,} HPTN 071 (PopART): A Cluster-Randomized Trial of the Population Impact of an HIV Combination Prevention Intervention Including Universal Testing and Treatment: Mathematical Model, \emph{PLoS ONE}, Vol.9, No.1, (2014), p.e84511.
+\bibitem{Egger}\label{Egger}
+\textbf{Egger M., Althaus C., Leigh J., Sch\"{o}ni A., Salanti G., Low N. and Norris S.L.,} Developing WHO Guidelines: Time to formally include evidence from mathematical modelling studies,  \emph{F1000Research}, Vol.6, (2018), 1584.
+\bibitem{Freedberg}\label{Freedberg}
+\textbf{Freedberg K.A., Possas C., Deeks S., Ross A.L., Rosettie K.L., Mascio M.D., Collins C., Walensky R.P. and Yazdanpanah Y.,} The HIV Cure Research Agenda: The Role of Mathematical Modelling and Cost-effectiveness Analysis, \emph{Journal of Virus Eradication}, Vol.1, No.4, (2015), 245-249.
+\bibitem{Gallo}\label{Gallo}
+\textbf{Gallo R.C., Sarin P.S., Gelmann E.P., Robert-Guroff M., Richardson E., Kalyanaraman V.S., Mann D., Sidhu G.D., Stahl R.E. Zolla-Pazner S., Leibowitch J. and Popovic M.,} Isolation of human t-cell leukemia virus in acquired immune deficiency syndrome (AIDS), \emph{Science}, Vol.220, No.4599, (1983), 865-867.
+\bibitem{Garnett}\label{Garnett}
+\textbf{Garnett G.P., Cousens S., Hallett T.B., Steketee R. and Walker N.,} Mathematical models in the evaluation of health programmes, \emph{The Lancet}, Vol.378, No.9790, (2011), 515-525.
+\bibitem{Granich}\label{Granich}
+\textbf{Granich R.M., Gilks C.F., Dye C., De Cock K. M. and Williams B.G.,} Universal voluntary HIV testing with immediate antiretroviral therapy as a strategy for elimination of HIV transmission: A mathematical model, \emph{The Lancet}, Vol.373, No.9657, (2009), 48-57.
+\bibitem{Haario}\label{Haario}
+\textbf{Haario H., Laine M., Mira A. and Saksman E.,} DRAM: Efficient Adaptive MCMC, \emph{Statistics and Computing}, Vol.16, No.4, (2006), 339-354.
+\bibitem{Hargrove}\label{Hargrove}
+\textbf{Hargrove J., Williams B., Abu-Raddad L., Auvert B., Bollinger L., Dorrington R., Ghani A., Gray R., Hallett T., Kahn J.G., Lohse N., Nagelkerke N., Porco T., Schmid G., Stover J., Weiss H., Welte A., White P. and White R.,} Male Circumcision for HIV Prevention in high HIV prevalence in high HIV Prevalence settings: What can mathematical modelling contribute to informed decision making?,\emph{PLoS Mediciene}, Vol.6, No.9 (2009), 1549-1277.
+\bibitem{Kok}\label{Kok}
+\textbf{Kok S., Rutherford A., Gustafson R., Barrios R., Montaner J. and Vasarhelyi K.,} Optimizing an HIV testing program using a system dynamics model of the continuum of care, \emph{Health Care Management Science}, Vol.18,No.3 (2015), 334-362.
+\bibitem{Long}\label{Long}
+\textbf{Long E.F. and Stavert R.R.,} Portfolios of Biomedical HIV Interventions in South Africa: A Cost-Effectiveness Analysis,\emph{Journal of General Internal Medicine}, Vol.28, No.10, (2013), 1294-130.
+\bibitem{Mit}\label{Mit}
+\textbf{Mitchell M.K., Lépine A., Terris-Prestholt F., Torpey K., Khamofu H., Folayan O.M., Musa J., Anenih J., Sagay A.S., Alhassan E., Idoko J.and Vickerman P.,} Modelling the impact and cost-effectiveness of combination prevention amongst HIV serodiscordant couples in Nigeria,\emph{AIDS}, Vol.29, No.15, (2015), 2035-44.
+\bibitem{Mitchell}\label{Mitchell}
+\textbf{Mitchell K.M., Prudden H.J., Washington R., Isac S., Rajaram S. P., Foss A.M., Terris-Prestholt F., Boily M.C. and Vickerman P.,} Potential impact of pre-exposure prophylaxis for female sex workers and men who have sex with men in Bangalore, India: a mathematical modelling study, \emph{Journal of the International AIDS Society}, Vol.19, No.1 (2016), 20942.
+\bibitem{NACC}\label{NACC}
+\textbf{NACC, National AIDS Control Council,} Kenya HIV County Profiles 2016, \emph{NACC}, 2017.
+\bibitem{NACC}\label{NACC}
+\textbf{NACC, National AIDS Control Council,} Kenya AIDS Response Progress Report 2018,\emph{NACC}, (2018).
+\bibitem{Omondi}\label{Omondi}
+\textbf{Omondi E. O., Mbogo R. and Luboobi L.,} Mathematical modelling of the impact of testing, treatment and control of HIV transmission in Kenya,\emph{Cogent Mathematics \& Statistics}, Vol.5, No.1, (2018).
+\bibitem{Odundo}\label{Odundo}
+\textbf{Odundo F., Simwa R. and Ongati O.,} Mathematical Modelling of HIV Infection, \emph{International Journal of Mathematical Archive}, Vol.4,No.12 (2013), 62-72.
+\bibitem{Paquette}\label{Paquette}
+\textbf{Paquette D., Schanzer D., Guo H., Gale-Rowe M. and Wong T.,} The impact of HIV treatment as prevention in the presence of other prevention strategies:Lessons learned from a review of mathematical models set in resource-rich countries, \emph{Preventive Medicine}, Vol.58, (2014), 1-8.
+\bibitem{Prague}\label{Prague}
+\textbf{Prague M.,} Use of dynamical models for treatment optimization in HIV infected patients: A sequential Bayesian Analysis Approach, \emph{Preventive Medicine,} Vol. 30, (2016), 311-328.
+\bibitem{Priya}\label{Priya}
+\textbf{Priya S.,} Making WHO recommendations more responsive: Recent World Health Organization (WHO) guidelines not only advise countries on what treatment to give patients and when, but also how to roll this out in countries,\emph{Bulletin of the World Health Organization}, Vol.92, No.11, (2014), 778-780.
+\bibitem{Smith}\label{Smith}
+\textbf{Smith A.J., Anderson S-J, Harris K.L., McGillen J.B., Lee E., Garnett G.P. and Hallett T.B.,} Maximising HIV Prevention by balancing the opportunities of today with the promises of tomorrow: A modelling Study,\emph{Lancet HIV}, Vol.3, No.7, (2016), 289-296.
+\bibitem{Stahl}\label{Stahl}
+\textbf{Stahl R.E., Friedman-Kien A., Dubin R., Marmor M. and Zolla-Pazner S.,} Maximising HIV Prevention by balancing the opportunities of today with the promises of tomorrow: A modelling Study,\emph{The American Journal of Medicine}, Vol.73, No.2, (1982), 171-178.
+\bibitem{Sun}\label{Sun}
+\textbf{Sun B.K., Myoungho Y., Nam S.K., Min H.K., Je E.S., Jin Y.A., Su J.J., Changsoo K., Hee-Dae K., Jeehyun L., Davey M.S. and Jun Y.C.,} Mathematical modelling of HIV Prevention measures including pre-exposure prophylaxis on HIV incidence in South Korea,\emph{PLoS ONE}, Vol.9, No.3, (2014), p.e90080.
+\bibitem{UNAIDS}\label{UNAIDS}
+\textbf{UNAIDS,} The Global HIV/AIDS Epidemic-Progress and Challenges,\emph{The Lancet}, Vol.390, No.10092, (2017), 333.
+\bibitem{WHO}\label{WHO}
+\textbf{WHO,World Health Organization, } Guidelines on when to start antiretroviral therapy and on pre-exposure prophylaxis for HIV,\emph{WHO}, Vol.30, No.92, (2005), 33.
+\bibitem{Zhang}\label{Zhang}
+\textbf{Zhang L., Gray R.T. and Wilson D.P.,} The Global HIV/AIDS Epidemic-Progress and Challenges,\emph{The Lancet}, Vol.390, No.10092, (2017), 333.
+\end{thebibliography}
+\newpage
+\section*{Time schedule}
+\addcontentsline{toc}{section}{Time schedule}
+\begin{tabular}{|l|l|}
+\hline ACTIVITY&PERIOD\\
+ \hline\hline
+ 1.PREPARATORY STAGE:& \\
+ (i) Literature review &  Nov (2018)--Dec (2018)\\
+ (ii)Definition of problem& Jan (2019)\\
+ (ii) Proposal writing & Jan  (2019)--April (2019)\\
+ (iii) Proposal defense  & June (2019)\\
+ \hline
+ 2.OPERATIONAL STAGE: & \\
+   (i) Research(problem--solving) & July (2019)--August (2019)\\
+   (ii) Drafting research report & August (2019)\\
+   (iii) Revising the draft report & Sept (2019)-- Oct (2019)\\
+   \hline
+ 3.EVALUATION STAGE: & \\
+   (a) Submission and evaluation of thesis & Oct (2019)--Nov (2019)\\
+   (b) Thesis defense and graduation    & Dec (2019)\\
+   \hline
+\end{tabular}
+
+
+\section*{The proposed budget}
+\addcontentsline{toc}{section}{The proposed budget}
+\small
+\begin{tabular}{|l|l|l|l|r|}
+\hline
+ ITEM & QTY &UNIT COST& COST&TOTAL \\&&(Kshs.)&(Kshs.)&(Kshs.)\\
+\hline\hline
+STATIONARY AND TUITION: &  &  &  & \\
+Tuition&&&240000&\\
+Accommodation and personal effects  &&&14000&\\
+Laptop computer&1&&74000&\\
+Ruled papers &5 reams&500&2500&\\
+Printing papers&10 reams&700&7000&\\
+Flash disk&4 (4GB each)&1500&6000&\\
+Pens&10&50&500&\\&&&&344000\\
+\hline Printing and &&&&\\
+Photocopying &&&&\\of literature&&&&8000\\
+\hline Internet services&&&&6000\\
+\hline Binding&10&500&5000&5000\\
+\hline TRAVELING:&&&&\\ Trips to HOMA BAY&&&&\\(HOMA BAY,
+Homa Bay Hospitals)&12 trip&1000&12000&12000\\
+\hline CONFERENCES:&&&&\\&&&&6000\\
+\hline SUBSISTENCE:&&&&\\In Homa Bay&12 days&500&6000&6000\\
+\hline\hline TOTAL EXPENDITURE&&&&\textbf{387000}\\
+\hline\hline
+\end{tabular}
+\end{document} 

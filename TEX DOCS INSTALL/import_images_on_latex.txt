@@ -1,0 +1,16 @@
+\usepackage{adjustbox}
+
+\graphicspath{{D:/latex/images/}}
+
+\newcommand*{\MyIncludeGraphics}[2][]{%
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+    \includegraphics[#1]{#2}%
+\end{adjustbox}
+}
+
+\begin{figure}[H]
+\centering
+\MyIncludeGraphics{your_figure_name_in_the_images_folder_here}
+\caption{}
+\label{fig:fig1}
+\end{figure}

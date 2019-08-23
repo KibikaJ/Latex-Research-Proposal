@@ -1,0 +1,404 @@
+\documentclass[PhD,14,a4paper]{report}
+\linespread{1.5}
+\usepackage[centertags]{amsmath}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[all]{xy}
+\usepackage[left=1.0in, right=1in, top=0.8in, bottom=0.8in]{geometry}
+\renewcommand\bibname{References}
+
+\def\i{{\imath}}
+\def\Ker{{\operatorname{Ker}}}
+\def\Im{{\operatorname{Im}}}
+
+% THEOREMS ---------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{con}[thm]{Conjecture}
+\newtheorem{cla}[thm]{Claim}
+%\newtheorem{References}{thebibliography}
+
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{cond}[thm]{Condition}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+
+\numberwithin{figure}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\numberwithin{equation}{subsection}
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+
+% MATH ----------------------------------------------------
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Aa}{\mathbf{A}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\BOP}{\mathbf{B}}
+\newcommand{\BH}{\mathbf{B}(\mathcal{H})}
+\newcommand{\KH}{\mathcal{K}(\mathcal{H})}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Field}{\mathbb{F}}
+\newcommand{\RPlus}{\Real^{+}}
+% -----------------------------------------------------------
+
+\begin{document}
+
+
+{\begin{titlepage}
+ \begin{center}
+\textsc{\textbf{ JARAMOGI OGINGA ODINGA UNIVERSITY OF SCIENCE AND TECHNOLOGY \vskip 17mm SCHOOL OF MATHEMATICS AND ACTUARIAL SCIENCE}\\
+\vskip 18mm
+Department of  Pure and Applied  Mathematics }\vskip 17mm
+\textbf{ ON NORMALITY AND COMPACTNESS OF DENSE TOPOLOGICAL SUBSPACES }\\
+\vskip 15mm \textsc{\emph{ A Research Proposal Submitted in Partial Fulfilment of the Requirements for the Award of the Degree of Master of Science in Pure Mathematics}
+\vskip 15mm
+BY\vskip 5mm OGOLA BLASUS \vskip 1mm W251/4119/2017\\
+\vskip 5mm
+Signature:.....................Date:..................................}\\
+\vskip 19mm \flushleft \center{\textbf{  SUPERVISORS}}\vskip 8mm
+\begin{tabular}{ll}
+1. Dr. Benard Okelo& 2. Prof.  Omolo Ongati\\
+Department of Pure and Applied Mathematics  &Department of Pure and Applied Mathematics\\
+Jaramogi Oginga Odinga University&Jaramogi Oginga Odinga University  \\
+of Science and Technology& of Science and Technology\\
+ Signature:.......................... Date:.................&Signature:.......................... Date:.................
+\end{tabular}
+\end{center}
+
+\end{titlepage}
+\newpage
+\tableofcontents \pagenumbering{roman}
+\newpage 
+%\pagenumbering{roman}
+\section*{ Abstract}
+\noindent Many studies have been conducted on dense topological   subspaces over along  period of time and interesting results have been  obtained. Normality and compactness on  topological  subspaces have also been investigated by many mathematicians however, characterizations when the subspaces are particularly dense has not been exhausted.  It is known  that a subset $A$ of topological  space $X$ is dense in $X$ if for any points $x \in X,$ any neighborhood of $X$ contains at least one point from $A.$  In this study, we will consider the Arhangel'skii  open questions which states that: Is every Tychonoff space normal on its countable subspaces? We will be interested in the case when the countable subspaces are dense.  The objectives of the study are to: Characterize  compactness of dense topological subspaces and; characterize  normality of dense topological subspaces. The methodology will involve  a description of  both finite and infinite dimensional dense topological subspaces. We will give a spectral description of normality and compactness and consider situations where a dense topological subspace is countable. The results obtained may be useful in explaining deformations and transformations in three dimensional objects.
+\addcontentsline{toc}{section}{Abstract}
+\newpage
+ \pagenumbering{arabic}
+\chapter{INTRODUCTION}
+\section{Mathematical Background}
+The notion of denseness in topological subspaces and related areas of mathematics has been studied over many years. A subspace $A$ of a topological space $X$ is dense if its closure is all of $X$: that is $\overline{A}=X,$  because  $\overline{A}$ is the set of all points $x$ such that every open neighborhood of $x$ intersects $A$ $A$ ie $A\cap U$. From [\ref{Fra2}] also discuss that the density topology on the real line is strengthening the usual  Euclidian topology which is intimately connected the measure theoretic structure, the space itself is not normal we are therefore interested in categorizing its normal sub spaces. This will therefore lead us to consideration of various set-theoretic axioms, and yield consistent example of homogeneously normal non-collection wise Hausdorff spaces. A space is collection Hausdorff if for each closed discrete subset $Y$ there exist pairwise disjoint open sets, one about each element of $Y$. We then look at the work done on both Normality and Compactness of dense topological subspaces by different scholars. We therefore consider the argument made by [\ref{Arh2}] in his survey on relative topological properties. The notion of normality on a subspace of a topological space is said to have been introduced by [\ref{Arh3}].
+It is clear that a space $X$ is called normal on a subspace $Y$ if any of the disjoint closed sets $F$ and $G$ of $X$ with $\overline{( F)\cap(Y)}=F$ and $\overline{(G)\cap(Y)} = G$ can be separated by open sets in $X$. [\ref{Arh5}] also points out in that if $X$ is normal on $Y$ is also normal $X$. i.e for each pair $A$, $B$ of closed disjoints subsets of $X$ there are open disjoint open subsets $U$, $V$ in $X$ such that $( A)\cap(Y)\subset(U)$ and $B\cap(Y)\subset(V)$. From this survey it is known that a normal space is not necessarily normal in a bigger space. However, every Lindelof (and hence every countable regular ) space is strongly normal in any regular space .This makes natural to ask whether every Tychonoff space is normal on its countable subspaces.Concerning [\ref{Arh2}] on normality and dense subspaces asserted that many Tychonoff spaces are not normal.This happens even if in the case of rather standard topology spaces, even a linear topological spaces need not to be normal. We can see this, We can refer to the product of uncountably many copies of the space of real numbers. It can also be natural to look for some trace of normality in Tychonoff spaces., to analyze when it satisfies some weaker forms of normality. An answer to this may be obtained in [\ref{Arh4}] as an application of $C_{p}$ theory.
+[\ref{Tka}] show that pseudo compact Tychonoff space can fail to be weakly discretely generated. This can as well happen to countably compact Housdorff space. From [\ref{Dav1}] on the other hand argue that $A$ topological space $X$ is K-normal if every two disjoint regular closed subsets of $X$ can be separated by disjoint open subsets of $X$. In [\ref{Arh1}] they defined normality on topological subspaces in regards to two types of properties $\alpha$ normality and $\beta$-normality their classical proofs of  of non-normality show that spaces under under consideration are not $\alpha$ normal. If beta- normal space $X$ satisfy the $T1$ separation axioms, then the space $X$ is regular and if an alpha- normal space $X$ is Hausdorff space.Compactness is the generalization to topological spaces of the property of closed and bounded subsets of the real line; The Heine-Borel property while compact may infer "small, size, this is not true in general.
+Regarding relative topological properties and relative topological spaces, [\ref{Arh2}] says that $Y$ is compact in$ X$, if in every open covering of $X $ there is a finite subfamily $\gamma$ such that $(Y)\subset(U_\gamma)$ if every open covering of$ X$ contains a countable subfamily $\gamma$ such that $Y\subset{U}_{\gamma}$ is called Lindelof in $X$. [\ref{Dav1}] in their definition also asserted that a topological space $X$ is $K-normal$ if every two disjoint regular closed subsets of $X$ can be separated by disjoint open subset of $X$. In [\ref{sem}] on introductory notes in topology also says that if$ X$ is a topological space and $E c X$ be given, by an open covering of $E$ we mean a family ${Ui} i$ exist in 1 of open subsets. $E\subseteq U_{i\in 1} U_i$,,,i exist in 1.If $E$ has a finite many elements, then $e$, is automatically compact. A famous theorem states that every closed interval [a,b] in the real line is compact with the respect to the standard topology in $R$. From [\ref{sid}] on a book of topology without tears   also confirms the concept Stephen semen postulated that if $A$ is a subset of a topological space $\chi$ ,$\tau$. then $A$ is said to be compact if for every set $I$ and every family of open sets, $Oi$, exist in $I$ such that $A\subseteq U_{i\in \tau}O_i$ there exists a finite family $O_{i1}$, $O_{i2}$......$O_{in}$ such that $ A\subseteq O_{i1}$ $\cup O_{i2}$ $.......\cup O_{in}$.
+From [\ref{Har}] on note on the monotonically meta compact spaces ; argue that a space $X$ is countably meta compact if each countable open cover of$ X$ has a point finite open refinement that also covers $X$. [\ref{Arh2}] on relative topology properties argues that it cannot be difficult to show that if $X$ is regular $T1$ space, then $Y$ is compact in $X$ if and only if the closure of$ Y$ in $X$ is compact, which makes the notion of relative compactness almost trivial in the case of regular $T1$ space.In his classical paper [k], Katetov also showed that if$ X$ and$ Y$ are infinite compact spaces and $X\times{Y}$ is hereditarily normal then $X$ and$ Y$ are perfectly normal. By Sneiders theorem that compact space with a $G_\delta$ - diagonal is metrizable $[S]$, Katetov..... concludes that if $X$ is compact and $X^{3}$ is hereditarily normal then $X$ is metrizable. He asked if the same conclusion could be obtained assuming only that $X^2$ is hereditarily normal,  the second author obtained a counter assuming Martin's axioms plus a negation of the continuum Hypothesis$(MA+--CH)$. We also construct a counter examples assuming $CH$.
+
+\section{Basic Concepts}
+\noindent In this section we start reviewing the basic definitions that are key to our study on normality and compactness of dense topological subspaces.
+
+\begin{defn}
+[26, Definition 1.2.4 ] \textbf{Topological space}. .....
+
+\end{defn}
+
+
+\begin{defn}
+[ 14, Definition 1 ]  \textbf{Compact space}
+A topological space $X$ is compact provided that every open cover of $X$ has a finite subcover. A space $K$ is para compact if every closed  discrete subset of it has cardinally less than $K$.
+\end{defn}
+
+\begin{defn}
+( 14 , Definition 4.7 ) \textbf{Meta lindelof space.}  A space is meta lindelof if every open cover open cover has a point.countable refinement. A space has caliber $N1$ if every point -  countable open cover is countable
+\end{defn}
+
+
+\begin{defn}  ( 8 Definition 5. 3 ) \textbf{Finite intersection property}
+A family $A...$ of subspaces of subsets of a space $X$ has the finite intersection property provided that every finite sub collection of ...has non empty intersection.
+\end{defn}
+
+
+\begin{defn}
+Let $G$ be a topological group with the trivial component ( for example a zero - dimensional group ) Then $Cp ( X, G ) \cong{G}$ for every connected space $X$. In particular, any two connected spaces $X and Y are G$ - equivalent, and so most major topological properties are not preserved by $G$ - equivalence.
+\end{defn}
+
+\begin{defn}
+ ( 20 , Definition 1. 9 ) $G$ - regular
+Given a topological group $G$ , We say that a space $X$ is,
+( i ) $G$ - regular if for each closed set $ F \subset {X}$ and every point $ x \in X$  there exist $f\in {C_{p} ( X, G )}$ and $g\in{G} |{ e }$ such that $f ( x ) = g$ and $f ( F )\subseteq  { e }$
+
+( ii ) $G^{*}$ - regular if there exist $ g\in G \textit{e} $ such that for every closed set $F \subseteq X$ and each point $x\in X$  one can find $f\in C_{p} ( X, G )$ such that $ ( x ) =g$ and $f ( F ) \subseteq { e}$.
+
+( iii) $G**$ - regular provided that, whenever $F$ is closed subset of $X$, $x\in{X}$ ...| F and $g\in{G}$ there exists $f\in{Cp ( X, G )}$  such that $f ( x )= g$ and $f (F )\subseteq { e }$
+
+This show clearly that ; $X is G** - $regular $ \Rightarrow { X}$ is $G*$ - regular $\Rightarrow{ X}$ is regular.
+\end{defn}
+
+\begin{defn}
+ ( 13, Definition 9 )\textbf{ Baire}
+A space  is Baire if no non empty open set is the union of countably many nowhere dense sets.
+\end{defn}
+
+
+
+
+\begin{defn}
+A generalized Lusin space is a space in which every no where dense  subset cardinality that is less than $2^{ N0}$.
+\end{defn}
+
+
+\begin{defn}
+A set $S$ of reals is a sierpinski set if it has countable intersection with every null set $S$ is generalized Sierpinski set if its intersection with every null set has a cardinality that is less than continuum
+\end{defn}
+
+\begin{defn}
+ ( 8 , Definition 5. 4 )\textbf{ Locally compact}.
+
+$x \in{X }$ provided that there is an open set $U$ containing $x$ for which $\overline{U}$is compact if it is locally compact at each point.
+\end{defn}
+
+\begin{defn}
+A space $X$ is said to be normal on subset $Y c\subset{X}$ if for every two disjoints closed subsets $F, G of X$ satisfying $F = F n Y... and G = G n Y...$ can be separated in $X$ by open disjoint sets.
+\end{defn}
+
+
+\section{Statement of the Problem}
+
+The study of Normality and compactness on dense topological sub spaces have been carried over period of time by several Authors. This notion was first introduced by Arhangel'skii  in his survey on Relative Topological properties. [\ref{Arh2}] studied the relative separation axioms and on relative properties of  compactness type. He also studied the connections between the compactness type properties and relative separation properties. [\ref{Tka}] also showed that under $CH$  there exists a countable dense subset $X$ of $R...$ such that $R$ is normal on $X$ these Authors at seminar that there are Tychonoff separable space which are not normal on any countable dense subspace. Furthermore [ \ref{Dav1}] studied on the internal normality and internal compactness; They show the example which presents a way to modify any Dowker space to get to normal space $X$ such that $X$ . [ 0, 1 ] is not $K - normal$.[ \ref{Fran2}] who studied the normal subspaces of Density topology, showed that density topology on real line is strengthening of usual Euclidean topology which is intimately connected the measure of theoretic structure.[ \ref{Fra2}] also admitted the concept of Density topology, He did the characterization of certain subspaces and considerations cardinal invariants. [\ref{Arh1}] showed there exist a nice linear topological space $X$ of weight w1..such that no dense subspace of $X$ is normal. [ K ] Katetov on his classical paper showed that if $X$ and Y are infinite compact spaces and $X and Y$ is hereditarily normal. Then  $X and Y$ are perfectly normal. Moreover [ \ref{Har}] showed that any meta compact moore space is monotonically meta compact and used the result to characterize monotone meta compactness in certain generalized ordered (GO) spaces.[ \ref{Jan}] investigated which topological properties are preserved by $G$ - equivalence, with special emphasis being placed on characterizing topological properties of $X$ in terms of those of $Cp$ $( X, G )$. James [ \ref{Jam}] on his study the Equivalence of normality and compactness in hyper spaces showed how the continuum hypothesis is necessary assumption.[\ref{Arh1}] did affirm that a space $X$ is called normal on a subspace $Y$ if any pair of disjoint closed sets $F and G of X$ with $( F) \cap( Y)$ = $F$ and$( G) \cap( Y)$= $G$ can be separated  by open sets in $X$. Arhangel'skii points out in [ Ar, proposition 22 ]  that if $X$ is normal on $Y then Y$ is normal in $X$. it is known in... that normal space is not necessarily normal in bigger space. He then possed a question; Is every Tychonoff space normal on its countable subspaces? . Does the non- normality of separable space due to its non - normality on all dense countable subspaces?. From these questions we therefore intend to study the type and existence of countable dense subsets and also investigate if every separable space is  normal  or not normal alongside studying if these properties will be instrumental to help us understand how dense topological subspaces are normal or compact.
+
+In this study we will be guided by the following objectives;
+\section{Objectives of the Study}
+The objectives of the study are to;
+\begin{itemize}
+  \item [(i).] Characterize  compactness of dense topological subspaces.
+  \item [(ii).] Characterize  normality of dense topological subspaces.
+\end{itemize}
+
+\section{Significance of the Study}
+
+Normal may suggest meaning of being usual or ordinary. However normality as a property of topological space is not the most ordinary properties. Normality is useful in separating closed subsets in a normal space, any two disjoint closed subsets are separated by disjoint open subsets. This is a useful assumption and has many applications for example in algebraic topology we can use excision to determine the homology of the complement of the union of two disjoint closed subsets. Normality is also useful in separating continuous functions for example using Urysohn's lemma shows that any two disjoint closed subset in a normal space can be separated by a continuous function to [0, 1] which takes the value 0 on one closed set and one another. Normal spaces are completely regular and the assumption of complete regularity is extra ordinarily useful in,
+\begin{itemize}
+\item [(i).] Embedding as a dense subspace of compact Hausdorff space.
+\item [(ii).] Occurs as underlying space of a uniform space.
+\end{itemize}
+On the other hand compactness is sort of a topological generalization of finiteness, and this is true because topology deals with the open sets. Fitness therefore has a significance of allowing us to be able to construct certain things" by hand". Hein-Borel theorem says that a subset of $R...n..$ is compact if and only if it is closed and bounded so closed sets compactness bound ness are the same. Compactness is also important because;
+\begin{itemize}
+\item [(i).] It behaves greatly when when using topological operations.
+\item [(ii).] Compact set behave almost as finite sets, which are way easier to understand and work with than uncountable pathologies which are common in topology.
+\item [(iii).] Most topological groups we meet and face in mathematics everyday are locally e.g $\Re $,$\ C$ even $Qp and Rp.. $ the p-adic numbers.
+\end{itemize}
+
+
+\chapter{LITERATURE REVIEW}
+\section{Introduction}
+[\ref{Arh2}] on his survey on relative topological properties [Ar] says that a space $X$ is called normal on a subspace $Y$ if and any pair of disjoints closed set$ F and G of X$ with$\overline{( F) \cap(Y)}$= F and$\overline{( G) \cap(Y)}$=$G$ can be separated separated by set in $X$. Arhsngelskii points out that in [ Ar, Proposition 22] that if $X$ is normal on $Y$ then $Y$ is also normal on $X$.From his work it is known that normal space is not necessarily normal in a bigger space. This makes it very natural to ask whether every Tychonoff space is normal on its countable space.[\ref{Arh1}] says that many spaces are not normal. This can happen even if in the case of rather standard topological spaces. even a linear topological space need not to be normal. We can also look for some traces of normality in Tychonoff spaces ; to analyze when they satisfy some weaker forms of  normality and one of the most obvious condition if this type is the existence of dense normal subspace. A space $R...$is not normal on some countable dense space of it, while it is normal on some other dense subspaces.[\ref{Gue}] also argue that if $X$ and $Y$ are infinite compact spaces then $X and Y$ are perfectly normal. Franklin D Tall [4], asserts that space itself is not normal.; A space is collection wise Housdorff if for each closed discrete subset  there exists pairwise disjoint open sets one about each element of $Y$. A set $S$ of reals is a Siepinski set  if it has countable intersection with every null set, S is a generalized Sierpinski set if its intersection with every null set has cardinality less than Continuum. David [8] compactness was introduced into topology with intention of generalizing the properties of closed and bounded subsets $\ R^n$. A topology space $X$ is compact provided that every open cover of $X$ has a finite subcover. This would mean that, however we write $X$ as a union of open sets, there is always a finite sub collection $Oi$ of these union is $X$. a subspace of $X$ is compact if $A$ is a compact space in it subspace topology since relatively open sets in the sub space topology are intersection of open set in $X$ with the subspace $A$.
+
+
+
+ \section{Denseness}
+In topology and related areas of mathematics a subset $A$ of topological space $X$ is called dense  in $X$  if every point $x$ in $X$ either belongs to $A$ or a limit point of $A$. informally, for every point in $X$, the point is either in $A$ or arbitrarily "close" to a member of $A$ for instance, every real number is either a rational number or has one arbitrarily close to it. Formally, a subset $A$ of a topological space $X$ is dense in $X$ if for any point in $x$ in $X$, any neighborhood of $X$ contains at east one point from $A$ for example $A$ has non- empty open subsets of $X$. Equivalently, $A$ is dense in $X$ if and only if the only the only closed subset of $X$ containing $A$ is $x$ itself. This can as well be expressed by saying that the closure of A is in $X$. or interior of the complement of $A$ is empty. The density of a topological space $X$ is the least cardinality of a dense subset of $X$. A subset $A$ of topological space $X$ is called nowhere dense in $X$ if there is no neighborhood in $X$ on which $A$ is dense. Given a topological space $X$ , a subset $A$ of $X$ that can be expressed as the union of countably many nowhere dense subsets of $X$ is called Maegra. the rational number, while dense in the  real numbers are Maegra as a subset of reals. Dense topological space and subspaces can either be normal or not normal.[\ref{Arh1}] asserts that many Tychonoff spaces are not normal and this can also happen even in the case of rather standard  topological spaces. From his theorem [1] The space CP(w1..+ 1) does not contain a dense normal subspace.Arhangel'skii [2] in his corollary 12 says that if $Y$ is normal in itself and dense in $X$, then every continuous real - valued function on $Y$ can be extended to real - valued function on $X$ which is continuous at each point of $X$. Denseness is also transitive, Given three subsets $A, B, C$ of topological space $X$ with $A\subseteq B\ subset C$ such that $A is dense in B$ and $B is dense in C$. [\ref{Tka}] argue that there is a Hausdorff non-regular separable space $X$ which is normal on each countable dense subspace. Continuous functions into Hausdorff are determined by their values on dense subsets. if two functions f.g:$X\rightarrow Y$ into Housdorff space $Y$ agree on dense on all of $X$. A topological spaces with countable dense subset is called separable. $A$ topological space is Baire space if and only if intersection of countable many dense open sets is always dense. and a topological is called resolved if it is the union of two disjoint dense subsets. More generally a topological space is called $K$- resolved if it contains $K$-pairwise disjoint of dense sets. A number of work have also been done by several authors on dense topological spaces and subspaces being normal or not normal, which also involve some simple algebraic obstructions;
+
+\begin{thm}
+(13, Theorem 1 ) Let $X$ be the real line with density topology so,
+
+(i) $Y c X$...is a null set. ( has measure 0) if and only if it is nowhere dense if it is closed discrete;
+
+(ii) $X$ has a basis of cardinality $2^N0$
+
+(iii) Borel subsets of $X$ are measurable.
+
+(iv) $X$ is completely regular.
+
+(v) Every subspace of $X$ is the Union of closed discrete subspace and a subspace is satisfying the countable chain condition  disjoint collections of open sets are countable).
+\end{thm}
+
+
+
+\begin{prop}
+  Let $X$ be a space in which the set $Y$ of all isolated points is is dense. Then the following conditions are equivalent;
+
+(i) $X is K - normal$ .
+
+(ii) $X$ is normal on $Y$.
+
+(iii) $X$ is densely normal.
+\end{prop}
+
+
+
+ \section{Compactness}
+\noindent In mathematics and more specifically in general topology, Compactness is a property that generalizes the notion of subsets of Euclidean space being closed. (That is containing all its limits) and bounded ( having its all points lie in within some fixed distance of each other) Examples includes interval, a rectangle or a finite set points. A topological space is sequentially compact if any infinite sequence of points sampled from the space must have an infinite subsequence that converges to some point of the space. Hein-Borel theorem states that a subset of Euclidean space is compact in this sequential sense iff it is bounded. Thus if one chooses an infinite number of points in the closed unit interval [0, 1] some of these points must get arbitrarily close  to some real number in that space. The term Compact was introduced by Mourice Frechet in 1904 as a distillation of this concept. Compact plays an important role in Mathematical analysis, because many classical and important theorems of 19th century such as the extreme value theorem uses this concept. The product of any collection of compact spaces is compact( This is Tychonoff's theorem which is equivalent to the axiom of choice). Every topological space $X$ is open dense subspace of compact space having at most one point more than $X$ by the Alexandroff one-point Cementification. Every locally compact Hausdorff space $X$ is open dense sub space having at most point more than $X$.Any finite topological space , including the empty set is compact More generally any space with a finite topology( only finitely many open sets ) is compact this include the trivial topology. David Royster [8] asserts that Compactness is the generalization to topological spaces of the property  of the closed and bounded subsets of the real line : The Hein-Borel property. While compact may infer "small" size,.Compactnese was introduce into topology with the intention of generalizing the properties of the closed and bounded subsets of $R...$ Gruenhage and Nyiko on Normality in $X^2$.for compact $X$ showed that Compact space $X$ is Metrizable if $X^2$ is hereditarily collection wise normal and hereditarily Hausdorff. Arhangel'skii[\ref{Arh2}] also stated that if $X$ is normal, then every subspace $Y$ of $X$ is normal in $X$, therefore $Y$, may be in $X$ without being normal in itself this may happen for the case of being non-normal subspace of compact Hausdorff space $X$.
+
+Some other several authors have also done some work on compact dense topological spaces and sub spaces;
+
+
+\begin{thm}
+( 8, Theorem 5. 3 ) A space $X$ is only compact if and only if every family of closed sets in $X$ with the finite intersection property has non-empty intersection .This says that if f is afamily of closed sets with the finite intersection property then we must have that $\cap$ C$\ alpha$  = $\phi$
+\end{thm}
+
+\section{Normal topological subspaces}
+
+
+
+\chapter{RESEARCH METHODOLOGY}
+\section{Introduction}
+\noindent In this chapter we give the techniques which will be used to attain the results. The methodology will involve  a description of  both finite and infinite dimensional dense topological subspaces and  the use of  Spectral theory to construct Normality and Compactness on dense topological subspaces. We will also employ the concept of Lindenstrass property to establish Denseness of a topological subspaces. and the Birkhoff transitivity for convergence between Normality and Compactness on Dense topological subspaces.
+
+\section{Spectral theory}
+\noindent Given a bounded...
+\section{Birkhoff transitivity for convergence}
+\noindent   This theorem...
+\newpage
+\nocite{*}
+ \noindent
+\begin{thebibliography}{12}
+\addcontentsline{toc}{section}{References}
+\bibitem{Arh1}\label{Arh1}
+\textbf{ Arhangel'skii A. V.,} Normality and dense subspaces.\textit{Proceeding of the Mathematical society,} 130, (2005), 283-291.
+
+\bibitem{Arh2}\label{Arh2}
+\textbf{ Arhangel'skii A. V.,} Relative topological properties and and Relative topological spaces.\textit{ Topology and its application,}  70, (1996), 87-99.
+
+\bibitem{Arh3}\label{Arh3}
+ \textbf{Arhangel'skii A. V.,} Relative Normality and dense subspace.\textit{ Topology and its application,} 123, (2002), 27-36.
+
+\bibitem{Arh4}\label{Arh4}
+\textbf{Arhangel'skii A. V.,} Topological function spaces.\textit{ Kluwer Academic, Dordrecht}, 1992.
+
+\bibitem{Arh5}\label{Arh5}
+\textbf{ Arhangel'skii A.V. and Ludwig L., } On alpha-normal and beta-normal spaces.\textit{ Comment. Math. Math. Uni.,} 42, (2001), 507-519.
+
+\bibitem{Dav1}\label{Dav1}
+\textbf{ David C. and  Murtinova E.,} Internal Normality and Internal Compactness.\textit{ Topology and its applications } 155, (2008), 201-206.
+
+\bibitem{Dav2}\label{Dav2}
+\textbf{ David R.,}  Introduction to Topology, Springer, Verlag New York, 1999.
+
+\bibitem{Dav3}\label{Dav3}
+\textbf{ David F. T.,} Normality Versus Collectionwise normality. \textit{ North Holland ,} 2000.
+
+\bibitem{Dow}\label{Dow}
+\textbf{ Dow A. ,Tkachenko M. G., Tkachuk V. V.  and Wilson R. G.,} Topolgies generated by discrete subspaces. \textit{Glasnik Matem Ticki }  37, (2002), 189-212.
+
+\bibitem{Ell}\label{Ell}
+\textbf{ Elliot P.,}Problems from topology proceedings.\textit{ Math. GN,} 32, (2003), 69-201.
+
+\bibitem{Eng}\label{Eng}
+\textbf{ Engelking R.,} General topology.\textit{ PWN, Warszawa}, 1977.
+
+\bibitem{Fran1}\label{Fran1}
+\textbf{ Franklin D. T.,} Normal subspaces of Density Toplogy.\textit{ Pacific Journal of Mathematics} 75, (1978), 1-5.
+
+\bibitem{Fran2}\label{Fran2}
+\textbf{Franklin D. T.,} The Density Topology .\textit{ Pacific Journal of Mathematics,} 62, (1976), 6-14.
+
+\bibitem{Gor}\label{Gor}
+\textbf{ Gordienko I. and Arhangel'skii A.V } Locally finite toplogical spaces: Questions and Answers.\textit{ General topology,} 1994.
+
+\bibitem{Hor}\label{Hor}
+\textbf{ Harold R.B, Klass P, David J.,} Anote on monotonically metacompactness spaces. \textit{Topology and its applications ,} 157, (2010),  456-465.
+
+\bibitem{Han}\label{Han}
+ \textbf{Hanjal A. and Jahasz I.,} A consistency result concerning heriditarily alpha-Lindelof of spaces. \textit{Acta. Math. Acad. Sci. Hunger } 24, (1973), 307-312.
+
+\bibitem{Jame}\label{Jam}
+ \textbf{James K.,} On the Equivalence of Normalitand Compactness in Hyperspaces. \textit{Pacific journal of mathematics } 33, (1970),  7-12.
+
+\bibitem{Jan}\label{Jan}
+\textbf{ Jan S.and Dmitri S.,} Group valued Continuousfunctions with the topology of pointwise coverage. \textit{Topoloygy and its appliication} 157, (2010),  1518-1540.
+
+\bibitem{Jos}\label{Jos}
+\textbf{ Stampfli J. G.,} An extension of Scott Brown's invariantsubspace theorems.\textit{ K spectral set , J. operator Theory, } 3, (1980), 822-828.
+
+
+\bibitem{Sid}\label{Sid}
+\textbf{Sidney A. Morris .,} Topology without tears. Springer Verlag, New York, 2012.
+
+\bibitem{Sin}\label{Sin}
+\textbf{Singal M., Singal A. R.,} Mildy normal spaces. \textit{Kyungpook Math J ,} 13, (1973),  29-31.
+
+\bibitem{Sin}\label{Sin}
+\textbf{Singal M. and Arya S.,} Almost normal and almost complete regular spaces.\textit{ Kyungpook Math J ,} 25, (1970),  141-152.
+
+\bibitem{Tka}\label{Tka}
+\textbf{Tkachenko M. G., Tkachuk V. V., Wilson R. G. and Yasechenko I. V.,} Normality on dense countable subspaces. \textit{Scietaiae mathematics japanicae online} 4, (2001),  1-8.
+
+\bibitem{Van}\label{Van}
+\textbf{Van  E. K., Tall F.D. and Weiss W. A.,} Non-metrizable heriditarily Lindelof Spaces with point-countable bases from CH,. \textit{Proc. Amer. math. soc. ,} 64, (1997), 139-145.
+
+\bibitem{Val}\label{Val}
+
+\textbf{Valentin G and Hans A.,} Alpha- fuzzy Compactness in 1-Topological spaces.\textit{ IJMMS } 41, (2003), 2609-2617.
+
+\bibitem{Jus}\label{Jus}
+ \textbf{W. Just and J. T.,} A $K$- normal, not densely normal Tychonoff spaces. \textit{Proc. Amer. math. Soc., } 127, (1990), 901-905.
+
+\bibitem{Wat}\label{Wat}
+\textbf{ Watson W. S.,}Separation in countably paracompact spaces. \textit{Trans. Amer.Soc.,} 290, (1985), 831-842.
+
+\bibitem{Mil}\label{Mil}
+\textbf{ Miller W. A .,} \emph{Special subsets of the real line}. Hand book of set-theoritic Topology, , North Holland, Amsterdam, 1984.
+
+
+
+
+\end{thebibliography}
+\newpage
+\section*{Time schedule}
+\addcontentsline{toc}{section}{Time schedule}
+\begin{tabular}{|l|l|}
+\hline ACTIVITY&PERIOD\\
+ \hline\hline
+ 1.PREPARATORY STAGE:& \\
+ (i) Literature review &  Sep (2017)--oct  (2016)\\
+ (ii)Definition of problem& Nov (2017)-Dec (2017)\\
+ (ii) Proposal writing &  Jan (2018)--Mar(2018)\\
+ (iii) Proposal defense  & Apr(2018)--May (2018)\\
+ \hline
+ 2.OPERATIONAL STAGE: & \\
+   (i) Research(problem--solving) & Jun (2018)--Sept(2018)\\
+   (ii) Drafting research report & Oct (2018)--Jan(2019)\\
+   (iii) Revising the draft report & Feb (2019)--May (2019)\\
+   \hline
+ 3.EVALUATION STAGE: & \\
+   (a) Submission and evaluation of thesis & Jun (2019)--Aug (2019)\\
+   (b)Production of manuscript for publication& Sept(2019)--Nov(2019)\\
+   (b) Thesis defense and graduation    & Nov(2019)--Dec (2019)\\
+ \hline
+\end{tabular}
+
+\newpage
+\section*{The  Budget}
+\addcontentsline{toc}{section}{The Proposed Budget}
+\small
+\begin{tabular}{|l|l|l|l|r|}
+\hline
+ ITEM & QTY &UNIT COST& COST&TOTAL \\&&(Kshs.)&(Kshs.)&(Kshs.)\\
+\hline\hline
+STATIONARY AND OTHERS: &  &  &  & \\
+Tuition &&&385000&\\
+Accommodation and personal effects  &&&250000&\\
+Laptop computer&1&&60000&\\
+Ruled papers &6 reams&500&3000&\\
+Printing papers&10 reams&700&7000&\\
+Flash disk&4 (4GB each)&3000&12000&\\
+Pens&30&50&1500&\\&&&&717600\\
+\hline Binding&10&600&6000&6000\\
+\hline Printing and &&&&\\
+Photocopying &&&&\\of literature&&&&29000\\
+\hline Internet services/connection&&&&20000\\
+\hline Binding&10&500&5000&5000\\
+\hline Printing and &&&&\\
+Photocopying &&&&\\of draft and final thesis&&&&60000\\
+\hline Binding&10&500&5000&5000\\
+\hline CONFERENCES AND TRANSPORT :&&&&\\&&&&200000\\
+\hline\hline TOTAL EXPENDITURE&&&&\textbf{1,042,600}\\
+\hline\hline
+\end{tabular}
+\end{document} 
